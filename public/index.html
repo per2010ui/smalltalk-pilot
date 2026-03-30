@@ -80,11 +80,31 @@
       <div id="resultBox">Пока пусто.</div>
     </section>
 
-    <section class="card">
-      <h2>History</h2>
-      <button id="reloadHistoryBtn" type="button">Обновить history</button>
-      <div id="historyBox">Пока пусто.</div>
-    </section>
+<section class="card">
+  <h2>News</h2>
+  <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+    <button id="loadNewsBtn" type="button">Загрузить новости</button>
+    <button id="clearNewsBtn" type="button">Очистить новости</button>
+  </div>
+  <div id="newsStatus" style="margin-bottom:12px; font-size:12px; color:#888;">Пока пусто.</div>
+  <div id="newsBox">Новостей пока нет.</div>
+</section>
+
+<section class="card">
+  <h2>Facts</h2>
+  <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+    <button id="loadFactsBtn" type="button">Загрузить факты</button>
+    <button id="clearFactsBtn" type="button">Очистить факты</button>
+  </div>
+  <div id="factsStatus" style="margin-bottom:12px; font-size:12px; color:#888;">Пока пусто.</div>
+  <div id="factsBox">Фактов пока нет.</div>
+</section>
+
+<section class="card">
+  <h2>History</h2>
+  <button id="reloadHistoryBtn" type="button">Обновить history</button>
+  <div id="historyBox">Пока пусто.</div>
+</section>
   </main>
 
   <script src="/app.js"></script>

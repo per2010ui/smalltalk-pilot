@@ -3,6 +3,11 @@ import dotenv from "dotenv";
 import OpenAI from "openai";
 import fs from "fs";
 import path from "path";
+import { loadNews } from "./services/newsLoader.js";
+import { readNews, mergeNews, clearNews } from "./services/newsStore.js";
+import { loadFacts } from "./services/factsLoader.js";
+import { readFacts, mergeFacts, clearFacts } from "./services/factsStore.js";
+
 
 dotenv.config();
 
@@ -232,6 +237,139 @@ app.post("/api/generate", async (req, res) => {
   }
 });
 
+app.post("/load-news", async (req, res) => {
+  try {
+    const loadedItems = await loadNews();
+    const result = await mergeNews(loadedItems);
+
+    res.json({
+      ok: true,
+      added: result.added,
+      total: result.total,
+      items: result.items,
+    });
+  } catch (error) {
+    console.error("POST /load-news error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to load news",
+    });
+  }
+});
+
+app.get("/news", async (req, res) => {
+  try {
+    const limit = Number(req.query.limit || 0);
+    const language = String(req.query.language || "").trim().toLowerCase();
+
+    let items = await readNews();
+
+    if (language) {
+      items = items.filter(
+        (item) => String(item.language || "").toLowerCase() === language
+      );
+    }
+
+    if (limit > 0) {
+      items = items.slice(0, limit);
+    }
+
+    res.json({
+      ok: true,
+      items,
+    });
+  } catch (error) {
+    console.error("GET /news error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read news",
+    });
+  }
+});
+
+app.delete("/news", async (req, res) => {
+  try {
+    await clearNews();
+
+    res.json({
+      ok: true,
+      cleared: true,
+    });
+  } catch (error) {
+    console.error("DELETE /news error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to clear news",
+    });
+  }
+});
+
+app.post("/load-facts", async (req, res) => {
+  try {
+    const loadedItems = await loadFacts();
+    const result = await mergeFacts(loadedItems);
+
+    res.json({
+      ok: true,
+      added: result.added,
+      total: result.total,
+      items: result.items,
+    });
+  } catch (error) {
+    console.error("POST /load-facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to load facts",
+    });
+  }
+});
+
+app.get("/facts", async (req, res) => {
+  try {
+    const limit = Number(req.query.limit || 0);
+    const language = String(req.query.language || "").trim().toLowerCase();
+
+    let items = await readFacts();
+
+    if (language) {
+      items = items.filter(
+        (item) => String(item.language || "").toLowerCase() === language
+      );
+    }
+
+    if (limit > 0) {
+      items = items.slice(0, limit);
+    }
+
+    res.json({
+      ok: true,
+      items,
+    });
+  } catch (error) {
+    console.error("GET /facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read facts",
+    });
+  }
+});
+
+app.delete("/facts", async (req, res) => {
+  try {
+    await clearFacts();
+
+    res.json({
+      ok: true,
+      cleared: true,
+    });
+  } catch (error) {
+    console.error("DELETE /facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to clear facts",
+    });
+  }
+});
 app.listen(PORT, () => {
   console.log("Server started on http://localhost:" + PORT);
 });
