@@ -16,6 +16,51 @@ const newsStatus = document.getElementById("newsStatus");
 const factsBox = document.getElementById("factsBox");
 const factsStatus = document.getElementById("factsStatus");
 
+const dictionarySelectMap = {
+  language: document.getElementById("language"),
+  meetingSize: document.getElementById("meetingSize"),
+  meetingType: document.getElementById("meetingType"),
+  tone: document.getElementById("tone"),
+  conversationInvite: document.getElementById("conversationInvite"),
+  languageLevel: document.getElementById("languageLevel"),
+  archetype: document.getElementById("archetype")
+};
+
+const STORAGE_KEY = "cto-review-form-state-v1";
+
+const PERSISTED_FIELD_IDS = [
+  "mentalModel",
+  "prompt1",
+  "prompt2",
+  "prompt3",
+  "language",
+
+  "sendToAi",
+  "factText",
+  "goal",
+  "meetingSize",
+  "meetingType",
+  "tone",
+  "conversationInvite",
+  "languageLevel",
+  "archetype",
+
+  "useMentalModel",
+  "usePrompt1",
+  "usePrompt2",
+  "usePrompt3",
+  "useLanguage",
+
+  "useFactText",
+  "useGoal",
+  "useMeetingSize",
+  "useMeetingType",
+  "useTone",
+  "useConversationInvite",
+  "useLanguageLevel",
+  "useArchetype"
+];
+
 generateBtn.addEventListener("click", onGenerate);
 reloadHistoryBtn.addEventListener("click", loadHistory);
 
@@ -25,9 +70,7 @@ clearNewsBtn.addEventListener("click", onClearNews);
 loadFactsBtn.addEventListener("click", onLoadFacts);
 clearFactsBtn.addEventListener("click", onClearFacts);
 
-loadHistory();
-loadNewsList();
-loadFactsList();
+initializeApp();
 
 async function onLoadNews() {
   newsStatus.textContent = "Загрузка новостей...";
@@ -248,16 +291,113 @@ function renderFactsTable(items) {
 } 
 loadNewsList();
 
+async function initializeApp() {
+  await loadDictionaries();
+  bindPersistentFields();
+  restoreFormState();
+
+  loadHistory();
+  loadNewsList();
+  loadFactsList();
+}
+
+async function loadDictionaries() {
+  try {
+    const response = await fetch("/api/dictionaries");
+    const data = await response.json();
+
+    if (!data.ok) {
+      console.error("Failed to load dictionaries");
+      return;
+    }
+
+    fillDictionarySelects(data.dictionaries || {});
+  } catch (error) {
+    console.error("loadDictionaries error:", error);
+  }
+}
+
+function fillDictionarySelects(dictionaries) {
+  fillSelect(dictionarySelectMap.language, dictionaries.language || []);
+  fillSelect(dictionarySelectMap.meetingSize, dictionaries.meetingSize || []);
+  fillSelect(dictionarySelectMap.meetingType, dictionaries.meetingType || []);
+  fillSelect(dictionarySelectMap.tone, dictionaries.tone || []);
+  fillSelect(dictionarySelectMap.conversationInvite, dictionaries.conversationInvite || []);
+  fillSelect(dictionarySelectMap.languageLevel, dictionaries.languageLevel || []);
+  fillSelect(dictionarySelectMap.archetype, dictionaries.archetype || []);
+}
+
+function fillSelect(selectEl, items) {
+  if (!selectEl) return;
+
+  const currentValue = selectEl.value;
+  selectEl.innerHTML = "";
+
+  const normalizedItems = (items || []).map((item) => {
+    if (item && typeof item === "object") {
+      return {
+        value: String(item.value || "").trim(),
+        label: String(item.value || "").trim()
+      };
+    }
+
+    const prepared = String(item || "").trim();
+    return {
+      value: prepared,
+      label: prepared
+    };
+  }).filter((item) => item.value);
+
+  normalizedItems.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    selectEl.appendChild(option);
+  });
+
+  const values = normalizedItems.map((item) => item.value);
+
+  if (values.includes(currentValue)) {
+    selectEl.value = currentValue;
+  } else if (normalizedItems.length > 0) {
+    selectEl.value = normalizedItems[0].value;
+  }
+}
+
 async function onGenerate() {
-  const payload = {
-    factText: document.getElementById("factText").value.trim(),
-    audience: document.getElementById("audience").value.trim(),
-    situation: document.getElementById("situation").value.trim(),
-    goal: document.getElementById("goal").value.trim(),
-    tone: document.getElementById("tone").value,
-    language: document.getElementById("language").value,
-    send_to_ai: document.getElementById("sendToAi").checked
-  };
+const payload = {
+  mentalModel: getFieldValue("mentalModel"),
+  prompt1: getFieldValue("prompt1"),
+  prompt2: getFieldValue("prompt2"),
+  prompt3: getFieldValue("prompt3"),
+  language: getFieldValue("language"),
+
+  factText: getFieldValue("factText"),
+  goal: getFieldValue("goal"),
+  meetingSize: getFieldValue("meetingSize"),
+  meetingType: getFieldValue("meetingType"),
+  tone: getFieldValue("tone"),
+  conversationInvite: getFieldValue("conversationInvite"),
+  languageLevel: getFieldValue("languageLevel"),
+  archetype: getFieldValue("archetype"),
+
+  useMentalModel: getCheckboxValue("useMentalModel"),
+  usePrompt1: getCheckboxValue("usePrompt1"),
+  usePrompt2: getCheckboxValue("usePrompt2"),
+  usePrompt3: getCheckboxValue("usePrompt3"),
+  useLanguage: getCheckboxValue("useLanguage"),
+
+  useFactText: getCheckboxValue("useFactText"),
+  useGoal: getCheckboxValue("useGoal"),
+  useMeetingSize: getCheckboxValue("useMeetingSize"),
+  useMeetingType: getCheckboxValue("useMeetingType"),
+  useTone: getCheckboxValue("useTone"),
+  useConversationInvite: getCheckboxValue("useConversationInvite"),
+  useLanguageLevel: getCheckboxValue("useLanguageLevel"),
+  useArchetype: getCheckboxValue("useArchetype"),
+
+  send_to_ai: getCheckboxValue("sendToAi")
+};
 
   resultBox.innerHTML = "Выполняется...";
   promptBox.textContent = "Подготовка prompt...";
@@ -351,7 +491,78 @@ async function loadHistory() {
     historyBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
 }
+function getFieldValue(id) {
+  const el = document.getElementById(id);
+  if (!el) return "";
+  return String(el.value ?? "").trim();
+}
 
+function getCheckboxValue(id) {
+  const el = document.getElementById(id);
+  return Boolean(el?.checked);
+}
+
+function collectFormState() {
+  const state = {};
+
+  PERSISTED_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    if (el.type === "checkbox") {
+      state[id] = el.checked;
+    } else {
+      state[id] = el.value;
+    }
+  });
+
+  return state;
+}
+
+function saveFormState() {
+  try {
+    const state = collectFormState();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (error) {
+    console.error("saveFormState error:", error);
+  }
+}
+
+function restoreFormState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+
+    const state = JSON.parse(raw);
+    if (!state || typeof state !== "object") return;
+
+    PERSISTED_FIELD_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (!(id in state)) return;
+
+      if (el.type === "checkbox") {
+        el.checked = Boolean(state[id]);
+      } else {
+        el.value = state[id];
+      }
+    });
+  } catch (error) {
+    console.error("restoreFormState error:", error);
+  }
+}
+
+function bindPersistentFields() {
+  PERSISTED_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const eventName =
+      el.tagName === "SELECT" || el.type === "checkbox" ? "change" : "input";
+
+    el.addEventListener(eventName, saveFormState);
+  });
+}
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -359,3 +570,23 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 }
+
+const tabs = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.tab;
+
+    tabs.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    contents.forEach((content) => {
+      content.classList.remove("active");
+
+      if (content.id === "tab-" + target) {
+        content.classList.add("active");
+      }
+    });
+  });
+});

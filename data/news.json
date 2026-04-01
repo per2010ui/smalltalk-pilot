@@ -1,1 +1,515 @@
-[]
+[
+  {
+    "id": "1775054951300_0.5085197389724385",
+    "type": "news",
+    "title": "Claude Code users hitting usage limits 'way faster than expected'",
+    "url": "https://www.bbc.com/news/articles/ce8l2q5yq51o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.461841000197185",
+    "type": "news",
+    "title": "Mass robotaxi malfunction halts traffic in Chinese city",
+    "url": "https://www.bbc.com/news/articles/cvge91r9j80o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.4704963622632954",
+    "type": "news",
+    "title": "Thousands lose their jobs in deep cuts at tech giant Oracle",
+    "url": "https://www.bbc.com/news/articles/cm296jzzl9yo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.9425115580691987",
+    "type": "news",
+    "title": "Social media firms must better enforce Australia under-16 ban, watchdog says",
+    "url": "https://www.bbc.com/news/articles/cy4181pkxl2o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.04168409275296803",
+    "type": "news",
+    "title": "Kris Jenner's image spreads in Chinese social media good luck trend",
+    "url": "https://www.bbc.com/news/articles/c0rx57zgz52o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.5921190290078031",
+    "type": "news",
+    "title": "Tech CEOs suddenly love blaming AI for mass job cuts. Why?",
+    "url": "https://www.bbc.com/news/articles/cde5y2x51y8o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.2348801698849362",
+    "type": "news",
+    "title": "'We're having a moment' - fear and denial in Silicon Valley over social media addiction trial",
+    "url": "https://www.bbc.com/news/articles/c86e3eglv2go?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.1444653419309362",
+    "type": "news",
+    "title": "PS5 price hiked by £90 due to global 'pressures'",
+    "url": "https://www.bbc.com/news/articles/czx9852nkexo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.7068354693066279",
+    "type": "news",
+    "title": "Lloyds bank reveals IT glitch affected almost half a million customers",
+    "url": "https://www.bbc.com/news/articles/c70dqk2vjv8o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.6199255058231565",
+    "type": "news",
+    "title": "Just Eat and Autotrader among firms investigated in fake reviews probe",
+    "url": "https://www.bbc.com/news/articles/cj37eeyz0epo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.4716247604468109",
+    "type": "news",
+    "title": "Tech Life",
+    "url": "https://www.bbc.co.uk/sounds/play/w3ct8jxn?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951300_0.2651922473984799",
+    "type": "news",
+    "title": "Tech Now",
+    "url": "https://www.bbc.co.uk/iplayer/episode/m002tkdv?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Technology",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.300Z"
+  },
+  {
+    "id": "1775054951428_0.1375523255215909",
+    "type": "news",
+    "title": "What it's like to be on Florida's Space Coast ahead of Artemis launch",
+    "url": "https://www.bbc.com/news/articles/cz0e1myvl2ko?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.5372221880348338",
+    "type": "news",
+    "title": "'God squad' waives animal protections to expand oil drilling in Gulf of Mexico",
+    "url": "https://www.bbc.com/news/articles/cre19zrg5dxo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.10588534999054189",
+    "type": "news",
+    "title": "The personal items the Artemis II crew are taking to the Moon",
+    "url": "https://www.bbc.com/news/articles/cdj7e11pw10o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.5324055081434457",
+    "type": "news",
+    "title": "First stop, the Moon. Next stop, Mars? Why Nasa's mission matters",
+    "url": "https://www.bbc.com/news/articles/cd6wp6xenv0o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.26009330981065293",
+    "type": "news",
+    "title": "England sewage spills nearly halved in 2025 due mostly to drier weather",
+    "url": "https://www.bbc.com/news/articles/cwyjp2d3x12o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.9646100086066025",
+    "type": "news",
+    "title": "Dogs became man's best friend far earlier than thought, scientists find",
+    "url": "https://www.bbc.com/news/articles/cn0ky1n791go?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.7218844394555033",
+    "type": "news",
+    "title": "Weather looks favourable for Artemis launch despite cloud",
+    "url": "https://www.bbc.com/weather/articles/cj6w4p106klo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.17400816781938389",
+    "type": "news",
+    "title": "Next stop, Mars? Why Nasa's mission matters",
+    "url": "https://www.bbc.com/news/articles/cd6wp6xenv0o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.9668611752619778",
+    "type": "news",
+    "title": "The personal items the crew are taking with them",
+    "url": "https://www.bbc.com/news/articles/cdj7e11pw10o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.8687785889047881",
+    "type": "news",
+    "title": "Zoo welcomes 'vulnerable' giant anteater pup",
+    "url": "https://www.bbc.com/news/articles/cz780wx5eveo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.5402930545328763",
+    "type": "news",
+    "title": "Project to bring rare butterfly back to Yorkshire",
+    "url": "https://www.bbc.com/news/articles/cly081kmrnlo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.5756566046248605",
+    "type": "news",
+    "title": "What are the new bin rules in England?",
+    "url": "https://www.bbc.com/news/videos/c5y7xw5llvdo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.9205874438420325",
+    "type": "news",
+    "title": "UK engineer says Moon is 'stepping stone' to Mars",
+    "url": "https://www.bbc.com/news/articles/cdxkv454n7zo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.21387452989085498",
+    "type": "news",
+    "title": "When is Nasa's Moon mission launch and what will Artemis do?",
+    "url": "https://www.bbc.com/news/articles/c0q4w3l0wdvo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.8464815643829977",
+    "type": "news",
+    "title": "'It's phenomenal!': Excitement in Florida ahead of Artemis launch",
+    "url": "https://www.bbc.com/news/videos/c3w3d9lqg2xo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.5821058133004361",
+    "type": "news",
+    "title": "Museum gets grant for Bradford astronomer project",
+    "url": "https://www.bbc.com/news/articles/c17vr0w020go?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.7718133155957551",
+    "type": "news",
+    "title": "Two women, two different continents - but they've the same problem with their farms",
+    "url": "https://www.bbc.com/news/articles/cpd5n2g406do?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.6171233256047899",
+    "type": "news",
+    "title": "BBC Inside Science",
+    "url": "https://www.bbc.co.uk/sounds/play/p0n9k93l?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.9429626773643665",
+    "type": "news",
+    "title": "Artemis II: Nasa targets early April for Moon mission",
+    "url": "https://www.bbc.com/news/articles/c4g8qp42rq6o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.3300312176431286",
+    "type": "news",
+    "title": "Nasa announces change to its Moon landing plans",
+    "url": "https://www.bbc.com/news/articles/c6270030neyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.8358312178820027",
+    "type": "news",
+    "title": "The Global Story",
+    "url": "https://www.bbc.co.uk/sounds/play/w3ct717t?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.24291893824245692",
+    "type": "news",
+    "title": "Nasa's mega Moon rocket arrives at launch pad for Artemis II mission",
+    "url": "https://www.bbc.com/news/articles/cly148lvyevo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.6104002014260193",
+    "type": "news",
+    "title": "The science of soulmates: Is there someone out there exactly right for you?",
+    "url": "https://www.bbc.com/news/articles/crrnyg9e91jo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.8565716623191248",
+    "type": "news",
+    "title": "The debate about whether the NHS should use magic mushrooms to treat depression",
+    "url": "https://www.bbc.com/news/articles/ckg936l88e7o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951428_0.01082935064526036",
+    "type": "news",
+    "title": "Britain's energy bills problem - and why firms are paid huge sums to stop producing power",
+    "url": "https://www.bbc.com/news/articles/cdedjnw8e85o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Science",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.428Z"
+  },
+  {
+    "id": "1775054951623_0.21620909604737404",
+    "type": "news",
+    "title": "How Instagram’s ‘PG-13’ Branding for Teens Unraveled",
+    "url": "https://www.nytimes.com/2026/03/31/arts/instagram-pg-13-rating-mpa-meta-teen-safety.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.7916869605575194",
+    "type": "news",
+    "title": "OpenAI Adds Another $12 Billion to Latest Funding Round",
+    "url": "https://www.nytimes.com/2026/03/31/technology/openai-12-billion-latest-funding-round.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.0630685006467111",
+    "type": "news",
+    "title": "A Cat-and-Mouse Game of Russian Internet Restrictions and Evasion",
+    "url": "https://www.nytimes.com/2026/03/31/world/europe/russia-internet-restrictions.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.4341309499918944",
+    "type": "news",
+    "title": "Whoop, a Wearable Health Device Maker, Raises $575 Million",
+    "url": "https://www.nytimes.com/2026/03/31/business/dealbook/whoop-raises-575-million-10-billion-valuation.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.008275728717683783",
+    "type": "news",
+    "title": "What to Know About California’s Executive Order on A.I.",
+    "url": "https://www.nytimes.com/2026/03/30/technology/california-ai-executive-order.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.5608954367861754",
+    "type": "news",
+    "title": "From Foe to Ally: The S.E.C. Is Now Writing Crypto-Friendly Policies",
+    "url": "https://www.nytimes.com/2026/03/30/technology/sec-crypto-friendly-rules.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.518717939224852",
+    "type": "news",
+    "title": "Chromebook Remorse: Tech Backlash at Schools Extends Beyond Phones",
+    "url": "https://www.nytimes.com/2026/03/29/technology/chromebook-remorse-kansas-school-laptops.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.8814159533796536",
+    "type": "news",
+    "title": "What Is YouTube’s Dominance Doing to Us? We Asked Its C.E.O.",
+    "url": "https://www.nytimes.com/2026/03/28/magazine/neal-mohan-interview.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.5465364511878182",
+    "type": "news",
+    "title": "The Ezra Klein Show: How Fast Will A.I. Agents Rip Through the Economy?",
+    "url": "https://www.nytimes.com/2026/03/27/podcasts/hardfork-ezra-jack-clark.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.8830120602495911",
+    "type": "news",
+    "title": "An Invisible Bottleneck: A Helium Shortage Threatens the Chip Industry",
+    "url": "https://www.nytimes.com/2026/03/27/business/helium-chips-iran-war.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.5918537370876691",
+    "type": "news",
+    "title": "Why the Verdict Against Meta and YouTube Could Change Social Media",
+    "url": "https://www.nytimes.com/video/technology/100000010801833/why-the-verdict-against-meta-and-youtube-could-change-social-media.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.6734508098631035",
+    "type": "news",
+    "title": "Judge Stays Pentagon’s Labeling of Anthropic as ‘Supply Chain Risk’",
+    "url": "https://www.nytimes.com/2026/03/26/technology/anthropic-pentagon-risk-injunction.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.63796563106978",
+    "type": "news",
+    "title": "Safety Experts Considered LaGuardia Challenging but Not an Outlier",
+    "url": "https://www.nytimes.com/2026/03/26/business/laguardia-airport-air-canada-safety.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.7944190224698013",
+    "type": "news",
+    "title": "The Clues Binance Missed That Led to Billions in Crypto Flowing to Iran",
+    "url": "https://www.nytimes.com/2026/03/26/technology/binance-iran-us-sanctions.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.11183374593322803",
+    "type": "news",
+    "title": "U.S. Accuses NewYork-Presbyterian of Reaching Deals That Kept Costs High",
+    "url": "https://www.nytimes.com/2026/03/26/business/federal-lawsuit-newyork-presbyterian.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.9190075680277721",
+    "type": "news",
+    "title": "Shield AI, a Start-Up Making Military Drones, Raises $2 Billion",
+    "url": "https://www.nytimes.com/2026/03/26/business/dealbook/shield-ai-drones-aechelon-fund-raising.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.3323424621215175",
+    "type": "news",
+    "title": "Juries Take the Lead in the Push for Child Online Safety",
+    "url": "https://www.nytimes.com/2026/03/26/technology/social-media-verdicts-child-safety.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.6751611319040346",
+    "type": "news",
+    "title": "In ‘The AI Doc,’ Sam Altman and Dario Amodei Go on the Record",
+    "url": "https://www.nytimes.com/2026/03/26/movies/the-ai-doc-movie-anthropic-openai-claude-chatgpt.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.7397860608213813",
+    "type": "news",
+    "title": "Leonid Radvinsky, 43, Dies; Built the Adult-Entertainment Giant OnlyFans",
+    "url": "https://www.nytimes.com/2026/03/25/business/media/leonid-radvinsky-dead.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  },
+  {
+    "id": "1775054951623_0.5308057455034743",
+    "type": "news",
+    "title": "Meta and YouTube Found Negligent in Landmark Social Media Addiction Trial",
+    "url": "https://www.nytimes.com/2026/03/25/technology/social-media-trial-verdict.html",
+    "source": "NYTimes Tech",
+    "language": "en",
+    "created_at": "2026-04-01T14:49:11.623Z"
+  }
+]

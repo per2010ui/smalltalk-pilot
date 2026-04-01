@@ -7,7 +7,11 @@ import { loadNews } from "./services/newsLoader.js";
 import { readNews, mergeNews, clearNews } from "./services/newsStore.js";
 import { loadFacts } from "./services/factsLoader.js";
 import { readFacts, mergeFacts, clearFacts } from "./services/factsStore.js";
-
+import {
+  readDictionaries,
+  saveDictionaries,
+  resetDictionaries
+} from "./services/dictionariesStore.js";
 
 dotenv.config();
 
@@ -50,37 +54,94 @@ function saveHistory(item) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(list, null, 2), "utf-8");
 }
 
-function buildPrompt({ factText, language, tone, audience, situation, goal }) {
-  return `
-Ты помогаешь подготовить короткий business small talk для встречи.
+function addLine(lines, useFlag, label, value) {
+  if (!useFlag) return;
 
-ЗАДАЧА
-На основе вручную заданного факта создай 3 варианта small talk.
+  const prepared = String(value || "").trim();
+  if (!prepared) return;
 
-ВХОДНЫЕ ДАННЫЕ
-Язык: ${language || "русский"}
-Тон: ${tone || "нейтральный"}
-Аудитория / собеседник: ${audience || "не указано"}
-Ситуация: ${situation || "не указана"}
-Цель: ${goal || "не указана"}
+  lines.push(`${label}: ${prepared}`);
+}
 
-ФАКТ
-${factText || "не указан"}
+function findPromptHint(items, selectedValue) {
+  if (!Array.isArray(items) || !selectedValue) return "";
 
-ПРАВИЛА
-1. Используй только данный факт.
-2. Ничего не выдумывай сверх данного факта.
-3. Каждый вариант должен быть коротким и естественным.
-4. Каждый вариант должен звучать как готовая реплика.
-5. Верни ровно 3 варианта.
-6. Ответ должен быть только JSON.
-7. Не используй markdown.
-8. Не используй тройные кавычки и code fences.
-9. Не добавляй никаких пояснений до или после JSON.
+  const found = items.find((item) => {
+    if (!item || typeof item !== "object") return false;
+    return String(item.value || "").trim() === String(selectedValue || "").trim();
+  });
 
-Формат:
-{"variants":[{"id":1,"text":"..."},{"id":2,"text":"..."},{"id":3,"text":"..."}]}
-`.trim();
+  return String(found?.promptHint || "").trim();
+}
+
+function buildPrompt(payload) {
+  const contextLines = [];
+
+  addLine(contextLines, payload.useLanguage, "Язык", payload.language);
+
+  addLine(contextLines, payload.useFactText, "Факт", payload.factText);
+  addLine(contextLines, payload.useGoal, "Цель", payload.goal);
+
+  addLine(contextLines, payload.useMeetingSize, "Размер встречи", payload.meetingSize);
+  addLine(contextLines, payload.useMeetingType, "Тип встречи", payload.meetingType);
+  addLine(contextLines, payload.useTone, "Тон", payload.tone);
+  addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
+  addLine(contextLines, payload.useLanguageLevel, "Уровень языка", payload.languageLevel);
+  addLine(contextLines, payload.useArchetype, "Архетип", payload.archetype);
+
+  if (payload.useMeetingType && payload.meetingTypeHint) {
+    contextLines.push(`Правило для типа встречи: ${payload.meetingTypeHint}`);
+  }
+
+  if (payload.useLanguageLevel && payload.languageLevelHint) {
+    contextLines.push(`Правило для уровня языка: ${payload.languageLevelHint}`);
+  }
+
+  if (payload.useArchetype && payload.archetypeHint) {
+    contextLines.push(`Правило для архетипа: ${payload.archetypeHint}`);
+  }
+
+  if (payload.useMentalModel && payload.mentalModel) {
+    contextLines.push(`Ментальная модель: ${payload.mentalModel}`);
+  }
+
+  const rulesBlocks = [];
+
+  if (payload.usePrompt1 && payload.prompt1) {
+    rulesBlocks.push(`ПРОМТ 1\n${payload.prompt1.trim()}`);
+  }
+
+  if (payload.usePrompt2 && payload.prompt2) {
+    rulesBlocks.push(`ПРОМТ 2\n${payload.prompt2.trim()}`);
+  }
+
+  if (payload.usePrompt3 && payload.prompt3) {
+    rulesBlocks.push(`ПРОМТ 3\n${payload.prompt3.trim()}`);
+  }
+
+  const contextBlock = contextLines.length
+    ? contextLines.join("\n")
+    : "не задан";
+
+  const rulesBlock = rulesBlocks.length
+    ? rulesBlocks.join("\n\n")
+    : "не заданы";
+
+  return [
+    "Ты формируешь короткий business small talk.",
+    "",
+    "ЗАДАЧА",
+    "Создай 3 варианта короткой устной реплики для начала разговора.",
+    "",
+    "КОНТЕКСТ",
+    contextBlock,
+    "",
+    "ПРАВИЛА ГЕНЕРАЦИИ",
+    rulesBlock,
+    "",
+    "ФОРМАТ ОТВЕТА (строго JSON)",
+    '{"variants":[{"id":1,"text":"..."},{"id":2,"text":"..."},{"id":3,"text":"..."}]}'
+  ].join("\n");
 }
 
 function safeParseJson(text) {
@@ -122,26 +183,55 @@ app.post("/api/generate", async (req, res) => {
   try {
     const payload = req.body || {};
 
-    const factText = payload.factText || "";
-    const audience = payload.audience || "";
-    const situation = payload.situation || "";
-    const goal = payload.goal || "";
-    const tone = payload.tone || "нейтральный";
-    const language = payload.language || "русский";
+    const requestData = {
+      mentalModel: payload.mentalModel || "",
+      prompt1: payload.prompt1 || "",
+      prompt2: payload.prompt2 || "",
+      prompt3: payload.prompt3 || "",
+      language: payload.language || "русский",
+
+      factText: payload.factText || "",
+      goal: payload.goal || "",
+      meetingSize: payload.meetingSize || "",
+      meetingType: payload.meetingType || "",
+      tone: payload.tone || "",
+      conversationInvite: payload.conversationInvite || "",
+      languageLevel: payload.languageLevel || "",
+      archetype: payload.archetype || "",
+
+      useMentalModel: Boolean(payload.useMentalModel),
+      usePrompt1: Boolean(payload.usePrompt1),
+      usePrompt2: Boolean(payload.usePrompt2),
+      usePrompt3: Boolean(payload.usePrompt3),
+      useLanguage: Boolean(payload.useLanguage),
+
+      useFactText: Boolean(payload.useFactText),
+      useGoal: Boolean(payload.useGoal),
+      useMeetingSize: Boolean(payload.useMeetingSize),
+      useMeetingType: Boolean(payload.useMeetingType),
+      useTone: Boolean(payload.useTone),
+      useConversationInvite: Boolean(payload.useConversationInvite),
+      useLanguageLevel: Boolean(payload.useLanguageLevel),
+      useArchetype: Boolean(payload.useArchetype)
+    };
+
     const sendToAi = Boolean(payload.send_to_ai);
+    const dictionaries = await readDictionaries();
 
     const t0 = Date.now();
 
     const tPromptStart = Date.now();
     const prompt = buildPrompt({
-      factText,
-      audience,
-      situation,
-      goal,
-      tone,
-      language
+      ...requestData,
+      meetingTypeHint: findPromptHint(dictionaries.meetingType, requestData.meetingType),
+      languageLevelHint: findPromptHint(dictionaries.languageLevel, requestData.languageLevel),
+      archetypeHint: findPromptHint(dictionaries.archetype, requestData.archetype)
     });
     const promptTime = Date.now() - tPromptStart;
+
+    console.log("===== REQUEST DATA START =====");
+    console.log(JSON.stringify(requestData, null, 2));
+    console.log("===== REQUEST DATA END =====");
 
     console.log("===== PROMPT START =====");
     console.log(prompt);
@@ -203,12 +293,37 @@ app.post("/api/generate", async (req, res) => {
 
     const result = {
       created_at: new Date().toISOString(),
-      fact_text: factText,
-      audience,
-      situation,
-      goal,
-      tone,
-      language,
+
+      mentalModel: requestData.mentalModel,
+      prompt1: requestData.prompt1,
+      prompt2: requestData.prompt2,
+      prompt3: requestData.prompt3,
+      language: requestData.language,
+
+      fact_text: requestData.factText,
+      goal: requestData.goal,
+      meetingSize: requestData.meetingSize,
+      meetingType: requestData.meetingType,
+      tone: requestData.tone,
+      conversationInvite: requestData.conversationInvite,
+      languageLevel: requestData.languageLevel,
+      archetype: requestData.archetype,
+
+      useMentalModel: requestData.useMentalModel,
+      usePrompt1: requestData.usePrompt1,
+      usePrompt2: requestData.usePrompt2,
+      usePrompt3: requestData.usePrompt3,
+      useLanguage: requestData.useLanguage,
+
+      useFactText: requestData.useFactText,
+      useGoal: requestData.useGoal,
+      useMeetingSize: requestData.useMeetingSize,
+      useMeetingType: requestData.useMeetingType,
+      useTone: requestData.useTone,
+      useConversationInvite: requestData.useConversationInvite,
+      useLanguageLevel: requestData.useLanguageLevel,
+      useArchetype: requestData.useArchetype,
+
       variants: parsed.variants.map((item, index) => ({
         id: item.id || index + 1,
         text: String(item.text || "").trim()
@@ -246,13 +361,13 @@ app.post("/load-news", async (req, res) => {
       ok: true,
       added: result.added,
       total: result.total,
-      items: result.items,
+      items: result.items
     });
   } catch (error) {
     console.error("POST /load-news error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to load news",
+      error: "Failed to load news"
     });
   }
 });
@@ -276,35 +391,35 @@ app.get("/news", async (req, res) => {
 
     res.json({
       ok: true,
-      items,
+      items
     });
   } catch (error) {
     console.error("GET /news error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to read news",
+      error: "Failed to read news"
     });
   }
 });
 
-app.delete("/news", async (req, res) => {
+app.delete("/news", async (_req, res) => {
   try {
     await clearNews();
 
     res.json({
       ok: true,
-      cleared: true,
+      cleared: true
     });
   } catch (error) {
     console.error("DELETE /news error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to clear news",
+      error: "Failed to clear news"
     });
   }
 });
 
-app.post("/load-facts", async (req, res) => {
+app.post("/load-facts", async (_req, res) => {
   try {
     const loadedItems = await loadFacts();
     const result = await mergeFacts(loadedItems);
@@ -313,13 +428,13 @@ app.post("/load-facts", async (req, res) => {
       ok: true,
       added: result.added,
       total: result.total,
-      items: result.items,
+      items: result.items
     });
   } catch (error) {
     console.error("POST /load-facts error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to load facts",
+      error: "Failed to load facts"
     });
   }
 });
@@ -343,33 +458,86 @@ app.get("/facts", async (req, res) => {
 
     res.json({
       ok: true,
-      items,
+      items
     });
   } catch (error) {
     console.error("GET /facts error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to read facts",
+      error: "Failed to read facts"
     });
   }
 });
 
-app.delete("/facts", async (req, res) => {
+app.delete("/facts", async (_req, res) => {
   try {
     await clearFacts();
 
     res.json({
       ok: true,
-      cleared: true,
+      cleared: true
     });
   } catch (error) {
     console.error("DELETE /facts error:", error);
     res.status(500).json({
       ok: false,
-      error: "Failed to clear facts",
+      error: "Failed to clear facts"
     });
   }
 });
+
+app.get("/api/dictionaries", async (_req, res) => {
+  try {
+    const dictionaries = await readDictionaries();
+
+    res.json({
+      ok: true,
+      dictionaries
+    });
+  } catch (error) {
+    console.error("GET /api/dictionaries error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read dictionaries"
+    });
+  }
+});
+
+app.put("/api/dictionaries", async (req, res) => {
+  try {
+    const payload = req.body || {};
+    const dictionaries = await saveDictionaries(payload);
+
+    res.json({
+      ok: true,
+      dictionaries
+    });
+  } catch (error) {
+    console.error("PUT /api/dictionaries error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to save dictionaries"
+    });
+  }
+});
+
+app.post("/api/dictionaries/reset", async (_req, res) => {
+  try {
+    const dictionaries = await resetDictionaries();
+
+    res.json({
+      ok: true,
+      dictionaries
+    });
+  } catch (error) {
+    console.error("POST /api/dictionaries/reset error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to reset dictionaries"
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log("Server started on http://localhost:" + PORT);
 });

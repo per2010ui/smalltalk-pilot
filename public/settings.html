@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Справочники</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Справочники</h1>
+    <p class="subtitle">Редактирование списков значений для формы генерации</p>
+
+    <section class="card">
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button id="saveDictionariesBtn" type="button">Сохранить</button>
+        <button id="resetDictionariesBtn" type="button">Сбросить к умолчанию</button>
+        <a href="/" style="display:inline-block; padding:10px 14px; border:1px solid #ccc; border-radius:6px; text-decoration:none;">Назад</a>
+      </div>
+      <div id="settingsStatus" style="margin-top:12px; font-size:12px; color:#888;">Пока пусто.</div>
+    </section>
+
+    <section class="card">
+      <label>
+        Размер встречи
+        <textarea id="dictMeetingSize" rows="5" placeholder="По одному значению в строке"></textarea>
+      </label>
+    </section>
+
+<section class="card">
+  <h2>Тип встречи</h2>
+  <p class="subtitle">Формат строки: значение || правило для prompt</p>
+  <label>
+    <textarea id="dictMeetingType" rows="10" placeholder="Agile рутина || Делай фразы короткими, рабочими, без лишней абстракции."></textarea>
+  </label>
+</section>
+
+    <section class="card">
+      <label>
+        Тон
+        <textarea id="dictTone" rows="5" placeholder="По одному значению в строке"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <label>
+        Приглашение к разговору
+        <textarea id="dictConversationInvite" rows="4" placeholder="По одному значению в строке"></textarea>
+      </label>
+    </section>
+
+<section class="card">
+  <h2>Уровень языка</h2>
+  <p class="subtitle">Формат строки: значение || правило для prompt</p>
+  <label>
+    <textarea id="dictLanguageLevel" rows="6" placeholder="Высокий || Можно использовать более естественные и богатые формулировки."></textarea>
+  </label>
+</section>
+
+
+    <section class="card">
+  <h2>Архетип</h2>
+  <p class="subtitle">Формат строки: значение || правило для prompt</p>
+  <label>
+    <textarea id="dictArchetype" rows="8" placeholder="Маг || Добавляй ощущение видения, смысла, трансформации и необычного угла."></textarea>
+  </label>
+</section>
+
+    <section class="card">
+      <label>
+        Язык
+        <textarea id="dictLanguage" rows="4" placeholder="По одному значению в строке"></textarea>
+      </label>
+    </section>
+  </main>
+
+  <script src="/settings.js"></script>
+</body>
+</html>
