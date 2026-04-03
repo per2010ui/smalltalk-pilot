@@ -9,18 +9,18 @@
 <body>
   <main class="container">
     <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-  <h1>CTO Review</h1>
-  <a href="/settings.html" style="
-    padding:8px 12px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    text-decoration:none;
-    font-size:14px;
-    background:#f5f5f5;
-  ">
-    Справочники
-  </a>
-</div>
+      <h1>CTO Review</h1>
+      <a href="/settings.html" style="
+        padding:8px 12px;
+        border:1px solid #ccc;
+        border-radius:6px;
+        text-decoration:none;
+        font-size:14px;
+        background:#f5f5f5;
+      ">
+        Справочники
+      </a>
+    </div>
 
     <div class="tabs">
       <button class="tab-btn active" data-tab="setup">Настройки встречи</button>
@@ -30,180 +30,176 @@
 
     <p class="subtitle">Ручной факт → prompt preview → AI → 3 варианта</p>
 
-    <<div class="tab-content active" id="tab-setup">
-  <section class="card form-grid">
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Ментальная модель</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useMentalModel" checked />
-          Использовать
+    <div class="tab-content active" id="tab-setup">
+      <section class="card form-grid">
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Ментальная модель</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useMentalModel" checked />
+              Использовать
+            </label>
+          </span>
+          <textarea id="mentalModel" rows="5" placeholder="Вставь ментальную модель"></textarea>
         </label>
-      </span>
-      <textarea id="mentalModel" rows="5" placeholder="Вставь ментальную модель"></textarea>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Промт 1</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="usePrompt1" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Промт 1</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="usePrompt1" checked />
+              Использовать
+            </label>
+          </span>
+          <textarea id="prompt1" rows="5" placeholder="Вставь Промт 1"></textarea>
         </label>
-      </span>
-      <textarea id="prompt1" rows="5" placeholder="Вставь Промт 1"></textarea>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Промт 2</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="usePrompt2" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Промт 2</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="usePrompt2" checked />
+              Использовать
+            </label>
+          </span>
+          <textarea id="prompt2" rows="3" placeholder="Вставь Промт 2"></textarea>
         </label>
-      </span>
-      <textarea id="prompt2" rows="3" placeholder="Вставь Промт 2"></textarea>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Промт 3</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="usePrompt3" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Промт 3</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="usePrompt3" checked />
+              Использовать
+            </label>
+          </span>
+          <textarea id="prompt3" rows="3" placeholder="Вставь Промт 3"></textarea>
         </label>
-      </span>
-      <textarea id="prompt3" rows="3" placeholder="Вставь Промт 3"></textarea>
-    </label>
 
-<label>
-  <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-    <span>Язык</span>
-    <label class="checkbox-row" style="margin:0;">
-      <input type="checkbox" id="useLanguage" checked />
-      Использовать
-    </label>
-  </span>
-  <select id="language"></select>
-</label>
-</div>
-
-  <div class="tab-content" id="tab-generator">
-  <section class="card">
-    <label class="checkbox-row">
-      <input type="checkbox" id="sendToAi" checked />
-      Отправлять в AI
-    </label>
-    <p class="hint">
-      Если галочка снята, будет показан только текст prompt без запроса в OpenAI.
-    </p>
-  </section>
-
-  <section class="card form-grid">
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Факт</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useFactText" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Язык</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useLanguage" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="language"></select>
         </label>
-      </span>
-      <textarea id="factText" rows="5" placeholder="Вставь факт здесь"></textarea>
-    </label>
+      </section>
+    </div>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Цель</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useGoal" checked />
-          Использовать
+    <div class="tab-content" id="tab-generator">
+      <section class="card">
+        <label class="checkbox-row">
+          <input type="checkbox" id="sendToAi" checked />
+          Отправлять в AI
         </label>
-      </span>
-      <input type="text" id="goal" placeholder="например: разогреть разговор, мягко перейти к теме" />
-    </label>
+        <p class="hint">
+          Если галочка снята, будет показан только текст prompt без запроса в OpenAI.
+        </p>
+      </section>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Размер встречи</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useMeetingSize" checked />
-          Использовать
+      <section class="card form-grid">
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Факт</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useFactText" checked />
+              Использовать
+            </label>
+          </span>
+          <textarea id="factText" rows="5" placeholder="Вставь факт здесь"></textarea>
         </label>
-      </span>
-<select id="meetingSize"></select>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Тип встречи</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useMeetingType" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Цель</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useGoal" checked />
+              Использовать
+            </label>
+          </span>
+          <input type="text" id="goal" placeholder="например: разогреть разговор, мягко перейти к теме" />
         </label>
-      </span>
-<select id="meetingType"></select>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Тон</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useTone" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Размер встречи</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useMeetingSize" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="meetingSize"></select>
         </label>
-      </span>
-<select id="tone"></select>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Приглашение к разговору</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useConversationInvite" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Тип встречи</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useMeetingType" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="meetingType"></select>
         </label>
-      </span>
-<select id="conversationInvite"></select>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Уровень языка</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useLanguageLevel" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Тон</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useTone" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="tone"></select>
         </label>
-      </span>
-<select id="languageLevel"></select>
-    </label>
 
-    <label>
-      <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <span>Архетип</span>
-        <label class="checkbox-row" style="margin:0;">
-          <input type="checkbox" id="useArchetype" checked />
-          Использовать
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Размер SmallTalk</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useSmallTalkSize" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="smallTalkSize"></select>
         </label>
-      </span>
-     <select id="archetype"></select>
-    </label>
-  </section>
 
-  <section class="card">
-    <button id="generateBtn" type="button">Generate</button>
-    <div id="timing" style="margin-top:12px; font-size:12px; color:#888;"></div>
-  </section>
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Приглашение к разговору</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useConversationInvite" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="conversationInvite"></select>
+        </label>
 
-  <section class="card">
-    <h2>Prompt Preview</h2>
-    <pre id="promptBox">Пока пусто.</pre>
-  </section>
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Уровень языка</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useLanguageLevel" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="languageLevel"></select>
+        </label>
 
-  <section class="card">
-    <h2>Result</h2>
-    <div id="resultBox">Пока пусто.</div>
-  </section>
-</div>
+        <label>
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <span>Архетип</span>
+            <label class="checkbox-row" style="margin:0;">
+              <input type="checkbox" id="useArchetype" checked />
+              Использовать
+            </label>
+          </span>
+          <select id="archetype"></select>
+        </label>
+      </section>
 
       <section class="card">
         <button id="generateBtn" type="button">Generate</button>

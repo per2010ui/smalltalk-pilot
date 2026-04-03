@@ -59,6 +59,20 @@ const DEFAULT_DICTIONARIES = {
       promptHint: "Используй простые слова, короткие предложения и понятные конструкции."
     }
   ],
+  smallTalkSize: [
+    {
+      value: "короткий",
+      promptHint: "до 3 предложения"
+    },
+    {
+      value: "средний",
+      promptHint: "до 10 предложений"
+    },
+    {
+      value: "длинный",
+      promptHint: "больше 10 предложений"
+    }
+  ],
   archetype: [
     {
       value: "Маг",
@@ -154,6 +168,7 @@ function sanitizeDictionaries(payload = {}) {
     tone: sanitizeStringArray(payload.tone),
     conversationInvite: sanitizeStringArray(payload.conversationInvite),
     languageLevel: sanitizeRuleArray(payload.languageLevel),
+    smallTalkSize: sanitizeRuleArray(payload.smallTalkSize),
     archetype: sanitizeRuleArray(payload.archetype),
     language: sanitizeStringArray(payload.language)
   };

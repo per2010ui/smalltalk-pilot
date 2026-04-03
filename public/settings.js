@@ -8,6 +8,7 @@ const fieldMap = {
   tone: document.getElementById("dictTone"),
   conversationInvite: document.getElementById("dictConversationInvite"),
   languageLevel: document.getElementById("dictLanguageLevel"),
+  smallTalkSize: document.getElementById("dictSmallTalkSize"),
   archetype: document.getElementById("dictArchetype"),
   language: document.getElementById("dictLanguage")
 };
@@ -170,7 +171,9 @@ function collectFormData() {
     tone: collectLines(fieldMap.tone.value),
     conversationInvite: collectLines(fieldMap.conversationInvite.value),
     languageLevel: collectRuleLines(fieldMap.languageLevel.value),
-    archetype: collectRuleLines(fieldMap.archetype.value),
+    smallTalkSize: collectRuleLines(fieldMap.smallTalkSize.value),
+    archetype: collectRuleLines(fieldMap.archetype.value), 
+
     language: collectLines(fieldMap.language.value)
   };
 }
@@ -181,6 +184,7 @@ function fillForm(dictionaries) {
   fieldMap.tone.value = (dictionaries.tone || []).join("\n");
   fieldMap.conversationInvite.value = (dictionaries.conversationInvite || []).join("\n");
   fieldMap.languageLevel.value = formatRuleLines(dictionaries.languageLevel || []);
+  fieldMap.smallTalkSize.value = formatRuleLines(dictionaries.smallTalkSize || []);
   fieldMap.archetype.value = formatRuleLines(dictionaries.archetype || []);
   fieldMap.language.value = (dictionaries.language || []).join("\n");
 }
