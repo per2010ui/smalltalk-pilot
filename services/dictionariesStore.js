@@ -6,10 +6,19 @@ const FILE_PATH = path.join(DATA_DIR, "dictionaries.json");
 
 const DEFAULT_DICTIONARIES = {
   meetingSize: [
-    "Личная",
-    "Группа",
-    "Группа 20+ (доклад)"
-  ],
+  {
+    value: "Личная",
+    promptHint: "Можно точнее и живее. Допускается адресность. Не делай слишком формально."
+  },
+  {
+    value: "Группа",
+    promptHint: "Говори нейтрально для группы. Без чрезмерной адресности."
+  },
+  {
+    value: "Группа 20+ (доклад)",
+    promptHint: "Быстрый вход для большой группы. Минимум слов, максимум понятности."
+  }
+],
   meetingType: [
     {
       value: "Agile рутина",
@@ -45,10 +54,16 @@ const DEFAULT_DICTIONARIES = {
     "Деловой",
     "Конфликтный"
   ],
-  conversationInvite: [
-    "да",
-    "нет"
-  ],
+conversationInvite: [
+  {
+    value: "да",
+    promptHint: "По окончании задать открывающие вопросы."
+  },
+  {
+    value: "нет",
+    promptHint: "По окончании не задавать открывающие вопросы."
+  }
+],
   languageLevel: [
     {
       value: "Высокий",
@@ -163,10 +178,10 @@ function sanitizeRuleArray(value) {
 
 function sanitizeDictionaries(payload = {}) {
   return {
-    meetingSize: sanitizeStringArray(payload.meetingSize),
+    meetingSize: sanitizeRuleArray(payload.meetingSize),
     meetingType: sanitizeRuleArray(payload.meetingType),
     tone: sanitizeStringArray(payload.tone),
-    conversationInvite: sanitizeStringArray(payload.conversationInvite),
+conversationInvite: sanitizeRuleArray(payload.conversationInvite),
     languageLevel: sanitizeRuleArray(payload.languageLevel),
     smallTalkSize: sanitizeRuleArray(payload.smallTalkSize),
     archetype: sanitizeRuleArray(payload.archetype),

@@ -25,7 +25,7 @@
     <div class="tabs">
       <button class="tab-btn active" data-tab="setup">Настройки встречи</button>
       <button class="tab-btn" data-tab="generator">Генерация</button>
-      <button class="tab-btn" data-tab="content">News / Facts</button>
+      <button class="tab-btn" data-tab="content">News / Facts / Aphorisms</button>
     </div>
 
     <p class="subtitle">Ручной факт → prompt preview → AI → 3 варианта</p>
@@ -236,6 +236,16 @@
         </div>
         <div id="factsStatus" style="margin-bottom:12px; font-size:12px; color:#888;">Пока пусто.</div>
         <div id="factsBox">Фактов пока нет.</div>
+      </section>
+
+      <section class="card">
+        <h2>Aphorisms</h2>
+        <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+          <button id="loadAphorismsBtn" type="button">Загрузить афоризмы</button>
+          <button id="clearAphorismsBtn" type="button">Очистить афоризмы</button>
+        </div>
+        <div id="aphorismsStatus" style="margin-bottom:12px; font-size:12px; color:#888;">Пока пусто.</div>
+        <div id="aphorismsBox">Афоризмов пока нет.</div>
       </section>
     </div>
 

@@ -27,13 +27,13 @@
       </label>
     </section>
 
-<section class="card">
-  <h2>Тип встречи</h2>
-  <p class="subtitle">Формат строки: значение || правило для prompt</p>
-  <label>
-    <textarea id="dictMeetingType" rows="10" placeholder="Agile рутина || Делай фразы короткими, рабочими, без лишней абстракции."></textarea>
-  </label>
-</section>
+    <section class="card">
+      <h2>Тип встречи</h2>
+      <p class="subtitle">Формат строки: значение || правило для prompt</p>
+      <label>
+        <textarea id="dictMeetingType" rows="10" placeholder="Agile рутина || Делай фразы короткими, рабочими, без лишней абстракции."></textarea>
+      </label>
+    </section>
 
     <section class="card">
       <label>
@@ -49,35 +49,52 @@
       </label>
     </section>
 
-<section class="card">
-  <h2>Уровень языка</h2>
-  <p class="subtitle">Формат строки: значение || правило для prompt</p>
-  <label>
-    <textarea id="dictLanguageLevel" rows="6" placeholder="Высокий || Можно использовать более естественные и богатые формулировки."></textarea>
-  </label>
-</section>
-
-<section class="card">
-  <h2>Размер SmallTalk</h2>
-  <p class="subtitle">Формат строки: значение || правило для prompt</p>
-  <label>
-    <textarea id="dictSmallTalkSize" rows="5" placeholder="короткий || до 3 предложения"></textarea>
-  </label>
-</section>
+    <section class="card">
+      <h2>Уровень языка</h2>
+      <p class="subtitle">Формат строки: значение || правило для prompt</p>
+      <label>
+        <textarea id="dictLanguageLevel" rows="6" placeholder="Высокий || Можно использовать более естественные и богатые формулировки."></textarea>
+      </label>
+    </section>
 
     <section class="card">
-  <h2>Архетип</h2>
-  <p class="subtitle">Формат строки: значение || правило для prompt</p>
-  <label>
-    <textarea id="dictArchetype" rows="8" placeholder="Маг || Добавляй ощущение видения, смысла, трансформации и необычного угла."></textarea>
-  </label>
-</section>
+      <h2>Размер SmallTalk</h2>
+      <p class="subtitle">Формат строки: значение || правило для prompt</p>
+      <label>
+        <textarea id="dictSmallTalkSize" rows="5" placeholder="короткий || до 3 предложения"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Архетип</h2>
+      <p class="subtitle">Формат строки: значение || правило для prompt</p>
+      <label>
+        <textarea id="dictArchetype" rows="8" placeholder="Маг || Добавляй ощущение видения, смысла, трансформации и необычного угла."></textarea>
+      </label>
+    </section>
 
     <section class="card">
       <label>
         Язык
         <textarea id="dictLanguage" rows="4" placeholder="По одному значению в строке"></textarea>
       </label>
+    </section>
+
+    <section class="card">
+      <h2>Источники афоризмов</h2>
+      <p class="subtitle">Настройка списка источников для загрузки афоризмов</p>
+
+      <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+        <button id="addAphorismSourceBtn" type="button">Добавить источник</button>
+        <button id="saveAphorismSourcesBtn" type="button">Сохранить источники</button>
+        <button id="resetAphorismSourcesBtn" type="button">Сбросить источники</button>
+      </div>
+
+      <div id="aphorismSourcesStatus" style="margin-bottom:12px; font-size:12px; color:#888;">
+        Пока пусто.
+      </div>
+
+      <div id="aphorismSourcesBox"></div>
     </section>
   </main>
 

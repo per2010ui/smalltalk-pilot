@@ -1,3 +1,5 @@
+import { loadAphorisms } from "./services/aphorismsLoader.js";
+import { readAphorisms, mergeAphorisms, clearAphorisms } from "./services/aphorismsStore.js";
 import express from "express";
 import dotenv from "dotenv";
 import OpenAI from "openai";
@@ -12,6 +14,11 @@ import {
   saveDictionaries,
   resetDictionaries
 } from "./services/dictionariesStore.js";
+import {
+  readAphorismSources,
+  saveAphorismSources,
+  resetAphorismSources
+} from "./services/aphorismSourcesStore.js";
 
 dotenv.config();
 
@@ -77,46 +84,60 @@ function findPromptHint(items, selectedValue) {
 function buildPrompt(payload) {
   const contextLines = [];
 
-  addLine(contextLines, payload.useLanguage, "Язык", payload.language);
+  addLine(contextLines, payload.useLanguage, "Language", payload.language);
 
-  addLine(contextLines, payload.useFactText, "Факт", payload.factText);
-  addLine(contextLines, payload.useGoal, "Цель", payload.goal);
+  addLine(contextLines, payload.useFactText, "Fact", payload.factText);
+  addLine(contextLines, payload.useGoal, "Goal", payload.goal);
 
-  addLine(contextLines, payload.useMeetingSize, "Размер встречи", payload.meetingSize);
-  addLine(contextLines, payload.useMeetingType, "Тип встречи", payload.meetingType);
+ // addLine(contextLines, payload.useMeetingSize, "Размер встречи", payload.meetingSize);
+  if (payload.useMeetingSize && payload.meetingSizeHint) {
+  contextLines.push(payload.meetingSizeHint);
+}
+  //addLine(contextLines, payload.useMeetingType, "Тип встречи", payload.meetingType);
   addLine(contextLines, payload.useTone, "Тон", payload.tone);
-  addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
-  addLine(contextLines, payload.useLanguageLevel, "Уровень языка", payload.languageLevel);
-  addLine(contextLines, payload.useArchetype, "Архетип", payload.archetype);
+  //addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
+  // addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
+
+if (payload.useConversationInvite && payload.conversationInviteHint) {
+  contextLines.push(payload.conversationInviteHint);
+}
+  //addLine(contextLines, payload.useLanguageLevel, "Уровень языка", payload.languageLevel);
+  //addLine(contextLines, payload.useSmallTalkSize, "Размер SmallTalk", payload.smallTalkSize);
+  //addLine(contextLines, payload.useArchetype, "Архетип", payload.archetype);
 
   if (payload.useMeetingType && payload.meetingTypeHint) {
-    contextLines.push(`Правило для типа встречи: ${payload.meetingTypeHint}`);
+    contextLines.push(`${payload.meetingTypeHint}`);
   }
 
   if (payload.useLanguageLevel && payload.languageLevelHint) {
-    contextLines.push(`Правило для уровня языка: ${payload.languageLevelHint}`);
+    contextLines.push(`${payload.languageLevelHint}`);
+  }
+
+  if (payload.useSmallTalkSize && payload.smallTalkSizeHint) {
+    contextLines.push(`${payload.smallTalkSizeHint}`);
   }
 
   if (payload.useArchetype && payload.archetypeHint) {
-    contextLines.push(`Правило для архетипа: ${payload.archetypeHint}`);
+    contextLines.push(`${payload.archetypeHint}`);
   }
 
   if (payload.useMentalModel && payload.mentalModel) {
-    contextLines.push(`Ментальная модель: ${payload.mentalModel}`);
+    contextLines.push(`${payload.mentalModel}`);
   }
+
+  const introBlock =
+    payload.usePrompt1 && payload.prompt1
+      ? payload.prompt1.trim()
+      : "не задан";
 
   const rulesBlocks = [];
 
-  if (payload.usePrompt1 && payload.prompt1) {
-    rulesBlocks.push(`ПРОМТ 1\n${payload.prompt1.trim()}`);
-  }
-
   if (payload.usePrompt2 && payload.prompt2) {
-    rulesBlocks.push(`ПРОМТ 2\n${payload.prompt2.trim()}`);
+    rulesBlocks.push(payload.prompt2.trim());
   }
 
   if (payload.usePrompt3 && payload.prompt3) {
-    rulesBlocks.push(`ПРОМТ 3\n${payload.prompt3.trim()}`);
+    rulesBlocks.push(payload.prompt3.trim());
   }
 
   const contextBlock = contextLines.length
@@ -127,21 +148,17 @@ function buildPrompt(payload) {
     ? rulesBlocks.join("\n\n")
     : "не заданы";
 
-  return [
-    "Ты формируешь короткий business small talk.",
-    "",
-    "ЗАДАЧА",
-    "Создай 3 варианта короткой устной реплики для начала разговора.",
-    "",
-    "КОНТЕКСТ",
-    contextBlock,
-    "",
-    "ПРАВИЛА ГЕНЕРАЦИИ",
-    rulesBlock,
-    "",
-    "ФОРМАТ ОТВЕТА (строго JSON)",
-    '{"variants":[{"id":1,"text":"..."},{"id":2,"text":"..."},{"id":3,"text":"..."}]}'
-  ].join("\n");
+return [
+  introBlock,
+  "",
+  "КОНТЕКСТ",
+  contextBlock,
+  "",
+  "ПРАВИЛА ГЕНЕРАЦИИ",
+  rulesBlock,
+  "",
+  "Return only JSON matching the schema."
+].join("\n");
 }
 
 function safeParseJson(text) {
@@ -172,6 +189,25 @@ function safeParseJson(text) {
   return null;
 }
 
+function normalizeVariants(parsed) {
+  if (!parsed || !Array.isArray(parsed.variants)) {
+    return null;
+  }
+
+  const normalized = parsed.variants
+    .map((item) => ({
+      id: 1,
+      text: typeof item?.text === "string" ? item.text.trim() : ""
+    }))
+    .filter((item) => item.text);
+
+  if (normalized.length !== 1) {
+    return null;
+  }
+
+  return normalized;
+}
+
 app.get("/api/history", (_req, res) => {
   res.json({
     ok: true,
@@ -198,12 +234,14 @@ app.post("/api/generate", async (req, res) => {
       conversationInvite: payload.conversationInvite || "",
       languageLevel: payload.languageLevel || "",
       archetype: payload.archetype || "",
+      smallTalkSize: payload.smallTalkSize || "",
 
       useMentalModel: Boolean(payload.useMentalModel),
       usePrompt1: Boolean(payload.usePrompt1),
       usePrompt2: Boolean(payload.usePrompt2),
       usePrompt3: Boolean(payload.usePrompt3),
       useLanguage: Boolean(payload.useLanguage),
+      useSmallTalkSize: Boolean(payload.useSmallTalkSize),
 
       useFactText: Boolean(payload.useFactText),
       useGoal: Boolean(payload.useGoal),
@@ -221,12 +259,15 @@ app.post("/api/generate", async (req, res) => {
     const t0 = Date.now();
 
     const tPromptStart = Date.now();
-    const prompt = buildPrompt({
-      ...requestData,
-      meetingTypeHint: findPromptHint(dictionaries.meetingType, requestData.meetingType),
-      languageLevelHint: findPromptHint(dictionaries.languageLevel, requestData.languageLevel),
-      archetypeHint: findPromptHint(dictionaries.archetype, requestData.archetype)
-    });
+const prompt = buildPrompt({
+  ...requestData,
+  meetingSizeHint: findPromptHint(dictionaries.meetingSize, requestData.meetingSize),
+  meetingTypeHint: findPromptHint(dictionaries.meetingType, requestData.meetingType),
+  languageLevelHint: findPromptHint(dictionaries.languageLevel, requestData.languageLevel),
+  smallTalkSizeHint: findPromptHint(dictionaries.smallTalkSize, requestData.smallTalkSize),
+  archetypeHint: findPromptHint(dictionaries.archetype, requestData.archetype),
+   conversationInviteHint: findPromptHint(dictionaries.conversationInvite, requestData.conversationInvite)
+});
     const promptTime = Date.now() - tPromptStart;
 
     console.log("===== REQUEST DATA START =====");
@@ -253,20 +294,40 @@ app.post("/api/generate", async (req, res) => {
 
     const tAiStart = Date.now();
 
-    const response = await openai.responses.create({
-      model: process.env.MODEL_GENERATE || "gpt-5-mini",
-      instructions: [
-        "Return only valid JSON.",
-        "Do not use markdown.",
-        "Do not use code fences.",
-        "Do not add explanations before or after JSON.",
-        "Response must be exactly one JSON object.",
-        "The object must contain key 'variants' with exactly 3 items.",
-        "Each item must have keys 'id' and 'text'."
-      ].join(" "),
-      input: prompt,
-      max_output_tokens: 1200
-    });
+const response = await openai.responses.create({
+  model: process.env.MODEL_GENERATE || "gpt-5-mini",
+  input: prompt,
+  reasoning: { effort: "minimal" },
+  max_output_tokens: 800,
+  text: {
+    format: {
+      type: "json_schema",
+      name: "smalltalk_response",
+      strict: true,
+      schema: {
+        type: "object",
+        additionalProperties: false,
+        properties: {
+          variants: {
+            type: "array",
+            minItems: 1,
+            maxItems: 1,
+            items: {
+              type: "object",
+              additionalProperties: false,
+              properties: {
+                id: { type: "integer", enum: [1] },
+                text: { type: "string" }
+              },
+              required: ["id", "text"]
+            }
+          }
+        },
+        required: ["variants"]
+      }
+    }
+  }
+});
 
     const aiTime = Date.now() - tAiStart;
     const rawText = String(response.output_text || "").trim();
@@ -276,11 +337,12 @@ app.post("/api/generate", async (req, res) => {
     console.log("===== RAW RESPONSE END =====");
 
     const parsed = safeParseJson(rawText);
+    const normalizedVariants = normalizeVariants(parsed);
 
-    if (!parsed || !Array.isArray(parsed.variants) || parsed.variants.length !== 3) {
+    if (!normalizedVariants) {
       return res.status(500).json({
         ok: false,
-        error: "Модель не вернула корректный JSON с 3 вариантами",
+        error: "Модель не вернула корректный JSON с 1 вариантом",
         prompt_preview: prompt,
         raw_output: rawText || "[EMPTY output_text]",
         timing: {
@@ -308,12 +370,14 @@ app.post("/api/generate", async (req, res) => {
       conversationInvite: requestData.conversationInvite,
       languageLevel: requestData.languageLevel,
       archetype: requestData.archetype,
+      smallTalkSize: requestData.smallTalkSize,
 
       useMentalModel: requestData.useMentalModel,
       usePrompt1: requestData.usePrompt1,
       usePrompt2: requestData.usePrompt2,
       usePrompt3: requestData.usePrompt3,
       useLanguage: requestData.useLanguage,
+      useSmallTalkSize: requestData.useSmallTalkSize,
 
       useFactText: requestData.useFactText,
       useGoal: requestData.useGoal,
@@ -324,10 +388,7 @@ app.post("/api/generate", async (req, res) => {
       useLanguageLevel: requestData.useLanguageLevel,
       useArchetype: requestData.useArchetype,
 
-      variants: parsed.variants.map((item, index) => ({
-        id: item.id || index + 1,
-        text: String(item.text || "").trim()
-      }))
+      variants: normalizedVariants
     };
 
     saveHistory(result);
@@ -534,6 +595,125 @@ app.post("/api/dictionaries/reset", async (_req, res) => {
     res.status(500).json({
       ok: false,
       error: "Failed to reset dictionaries"
+    });
+  }
+});
+
+app.get("/api/aphorism-sources", async (_req, res) => {
+  try {
+    const items = await readAphorismSources();
+
+    res.json({
+      ok: true,
+      items
+    });
+  } catch (error) {
+    console.error("GET /api/aphorism-sources error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read aphorism sources"
+    });
+  }
+});
+
+app.put("/api/aphorism-sources", async (req, res) => {
+  try {
+    const payload = Array.isArray(req.body) ? req.body : [];
+    const items = await saveAphorismSources(payload);
+
+    res.json({
+      ok: true,
+      items
+    });
+  } catch (error) {
+    console.error("PUT /api/aphorism-sources error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to save aphorism sources"
+    });
+  }
+});
+
+app.post("/api/aphorism-sources/reset", async (_req, res) => {
+  try {
+    const items = await resetAphorismSources();
+
+    res.json({
+      ok: true,
+      items
+    });
+  } catch (error) {
+    console.error("POST /api/aphorism-sources/reset error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to reset aphorism sources"
+    });
+  }
+});
+
+app.post("/load-aphorisms", async (_req, res) => {
+  try {
+    const loadedItems = await loadAphorisms();
+    const result = await mergeAphorisms(loadedItems);
+
+    res.json({
+      ok: true,
+      added: result.added,
+      total: result.total,
+      items: result.items
+    });
+  } catch (error) {
+    console.error("POST /load-aphorisms error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to load aphorisms"
+    });
+  }
+});
+
+app.get("/aphorisms", async (req, res) => {
+  try {
+    const limit = Number(req.query.limit || 0);
+    const language = String(req.query.language || "").trim().toLowerCase();
+
+    let items = await readAphorisms();
+
+    if (language) {
+      items = items.filter(
+        (item) => String(item.language || "").toLowerCase() === language
+      );
+    }
+
+    if (limit > 0) {
+      items = items.slice(0, limit);
+    }
+
+    res.json({
+      ok: true,
+      items
+    });
+  } catch (error) {
+    console.error("GET /aphorisms error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read aphorisms"
+    });
+  }
+});
+
+app.delete("/aphorisms", async (_req, res) => {
+  try {
+    await clearAphorisms();
+
+    res.json({
+      ok: true,
+      cleared: true
+    });
+  } catch (error) {
+    console.error("DELETE /aphorisms error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to clear aphorisms"
     });
   }
 });

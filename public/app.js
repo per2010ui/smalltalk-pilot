@@ -5,6 +5,8 @@ const loadNewsBtn = document.getElementById("loadNewsBtn");
 const clearNewsBtn = document.getElementById("clearNewsBtn");
 const loadFactsBtn = document.getElementById("loadFactsBtn");
 const clearFactsBtn = document.getElementById("clearFactsBtn");
+const loadAphorismsBtn = document.getElementById("loadAphorismsBtn");
+const clearAphorismsBtn = document.getElementById("clearAphorismsBtn");
 
 const promptBox = document.getElementById("promptBox");
 const resultBox = document.getElementById("resultBox");
@@ -15,6 +17,9 @@ const newsStatus = document.getElementById("newsStatus");
 
 const factsBox = document.getElementById("factsBox");
 const factsStatus = document.getElementById("factsStatus");
+
+const aphorismsBox = document.getElementById("aphorismsBox");
+const aphorismsStatus = document.getElementById("aphorismsStatus");
 
 const dictionarySelectMap = {
   language: document.getElementById("language"),
@@ -35,7 +40,6 @@ const PERSISTED_FIELD_IDS = [
   "prompt2",
   "prompt3",
   "language",
-
   "sendToAi",
   "factText",
   "goal",
@@ -46,13 +50,11 @@ const PERSISTED_FIELD_IDS = [
   "conversationInvite",
   "languageLevel",
   "archetype",
-
   "useMentalModel",
   "usePrompt1",
   "usePrompt2",
   "usePrompt3",
   "useLanguage",
-
   "useFactText",
   "useGoal",
   "useMeetingSize",
@@ -73,9 +75,10 @@ clearNewsBtn?.addEventListener("click", onClearNews);
 loadFactsBtn?.addEventListener("click", onLoadFacts);
 clearFactsBtn?.addEventListener("click", onClearFacts);
 
-initializeApp();
+loadAphorismsBtn?.addEventListener("click", onLoadAphorisms);
+clearAphorismsBtn?.addEventListener("click", onClearAphorisms);
 
-/* ================= INIT ================= */
+initializeApp();
 
 async function initializeApp() {
   await loadDictionaries();
@@ -86,6 +89,7 @@ async function initializeApp() {
   loadHistory();
   loadNewsList();
   loadFactsList();
+  loadAphorismsList();
 }
 
 /* ================= DICTIONARIES ================= */
@@ -229,26 +233,41 @@ async function onGenerate() {
       return;
     }
 
+    if (!Array.isArray(data.variants) || data.variants.length === 0) {
+      resultBox.innerHTML = `<pre>Ошибка: модель не вернула ни одного варианта.</pre>`;
+      return;
+    }
+
     resultBox.innerHTML = "";
 
-    (data.variants || []).forEach((item) => {
+    data.variants.forEach((item, index) => {
+      const safeId = item?.id || index + 1;
+      const safeText = String(item?.text || "").trim();
+
+      if (!safeText) return;
+
       const card = document.createElement("div");
       card.className = "result-card";
       card.innerHTML = `
         <div class="result-header">
-          <strong>Вариант ${item.id}</strong>
+          <strong>Вариант ${escapeHtml(safeId)}</strong>
           <button type="button" class="copy-btn">Copy</button>
         </div>
-        <pre>${escapeHtml(item.text)}</pre>
+        <pre>${escapeHtml(safeText)}</pre>
       `;
 
       card.querySelector(".copy-btn")?.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(item.text);
+        await navigator.clipboard.writeText(safeText);
         alert("Скопировано");
       });
 
       resultBox.appendChild(card);
     });
+
+    if (!resultBox.children.length) {
+      resultBox.innerHTML = `<pre>Ошибка: модель вернула варианты без текста.</pre>`;
+      return;
+    }
 
     loadHistory();
   } catch (error) {
@@ -299,10 +318,7 @@ async function onLoadNews() {
   clearNewsBtn.disabled = true;
 
   try {
-    const response = await fetch("/load-news", {
-      method: "POST"
-    });
-
+    const response = await fetch("/load-news", { method: "POST" });
     const data = await response.json();
 
     if (!data.ok) {
@@ -310,9 +326,7 @@ async function onLoadNews() {
       return;
     }
 
-    newsStatus.textContent =
-      `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
-
+    newsStatus.textContent = `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
     await loadNewsList();
   } catch (error) {
     newsStatus.textContent = `Ошибка сети: ${error.message}`;
@@ -328,10 +342,7 @@ async function onClearNews() {
   clearNewsBtn.disabled = true;
 
   try {
-    const response = await fetch("/news", {
-      method: "DELETE"
-    });
-
+    const response = await fetch("/news", { method: "DELETE" });
     const data = await response.json();
 
     if (!data.ok) {
@@ -359,48 +370,13 @@ async function loadNewsList() {
       return;
     }
 
-    renderNewsTable(data.items || []);
+    renderSimpleTable(newsBox, data.items || [], [
+      { key: "title", label: "Title" },
+      { key: "source", label: "Source" }
+    ], true);
   } catch (error) {
     newsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
-}
-
-function renderNewsTable(items) {
-  if (!items.length) {
-    newsBox.innerHTML = "<p>Новостей пока нет.</p>";
-    return;
-  }
-
-  const rows = items
-    .map((item, index) => {
-      return `
-        <tr>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${index + 1}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item.title)}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item.source || "")}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">
-            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Open</a>
-          </td>
-        </tr>
-      `;
-    })
-    .join("");
-
-  newsBox.innerHTML = `
-    <div style="overflow:auto;">
-      <table style="width:100%; border-collapse:collapse;">
-        <thead>
-          <tr>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">#</th>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Title</th>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Source</th>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Link</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-  `;
 }
 
 /* ================= FACTS ================= */
@@ -411,10 +387,7 @@ async function onLoadFacts() {
   clearFactsBtn.disabled = true;
 
   try {
-    const response = await fetch("/load-facts", {
-      method: "POST"
-    });
-
+    const response = await fetch("/load-facts", { method: "POST" });
     const data = await response.json();
 
     if (!data.ok) {
@@ -422,9 +395,7 @@ async function onLoadFacts() {
       return;
     }
 
-    factsStatus.textContent =
-      `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
-
+    factsStatus.textContent = `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
     await loadFactsList();
   } catch (error) {
     factsStatus.textContent = `Ошибка сети: ${error.message}`;
@@ -440,10 +411,7 @@ async function onClearFacts() {
   clearFactsBtn.disabled = true;
 
   try {
-    const response = await fetch("/facts", {
-      method: "DELETE"
-    });
-
+    const response = await fetch("/facts", { method: "DELETE" });
     const data = await response.json();
 
     if (!data.ok) {
@@ -471,44 +439,207 @@ async function loadFactsList() {
       return;
     }
 
-    renderFactsTable(data.items || []);
+    renderSimpleTable(factsBox, data.items || [], [
+      { key: "title", label: "Title" },
+      { key: "source", label: "Source" }
+    ], true);
   } catch (error) {
     factsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
 }
 
-function renderFactsTable(items) {
+/* ================= APHORISMS ================= */
+
+async function onLoadAphorisms() {
+  aphorismsStatus.textContent = "Загрузка афоризмов...";
+  loadAphorismsBtn.disabled = true;
+  clearAphorismsBtn.disabled = true;
+
+  try {
+    const response = await fetch("/load-aphorisms", { method: "POST" });
+    const data = await response.json();
+
+    if (!data.ok) {
+      aphorismsStatus.textContent = "Ошибка загрузки афоризмов.";
+      return;
+    }
+
+    aphorismsStatus.textContent = `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
+    await loadAphorismsList();
+  } catch (error) {
+    aphorismsStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    loadAphorismsBtn.disabled = false;
+    clearAphorismsBtn.disabled = false;
+  }
+}
+
+async function onClearAphorisms() {
+  aphorismsStatus.textContent = "Очистка афоризмов...";
+  loadAphorismsBtn.disabled = true;
+  clearAphorismsBtn.disabled = true;
+
+  try {
+    const response = await fetch("/aphorisms", { method: "DELETE" });
+    const data = await response.json();
+
+    if (!data.ok) {
+      aphorismsStatus.textContent = "Ошибка очистки афоризмов.";
+      return;
+    }
+
+    aphorismsStatus.textContent = "Таблица афоризмов очищена.";
+    await loadAphorismsList();
+  } catch (error) {
+    aphorismsStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    loadAphorismsBtn.disabled = false;
+    clearAphorismsBtn.disabled = false;
+  }
+}
+
+async function loadAphorismsList() {
+  try {
+    const response = await fetch("/aphorisms");
+    const data = await response.json();
+
+    if (!data.ok) {
+      aphorismsBox.innerHTML = "<p>Ошибка загрузки списка афоризмов.</p>";
+      return;
+    }
+
+    renderAphorismsTable(aphorismsBox, data.items || []);
+  } catch (error) {
+    aphorismsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
+  }
+}
+
+function renderAphorismsTable(targetBox, items) {
   if (!items.length) {
-    factsBox.innerHTML = "<p>Фактов пока нет.</p>";
+    targetBox.innerHTML = "<p>Пока пусто.</p>";
     return;
   }
 
   const rows = items
     .map((item, index) => {
-      const linkHtml = item.url
-        ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Open</a>`
-        : "-";
+      const text = String(item?.title || "").trim();
+      const source = String(item?.source || "").trim();
+      const url = String(item?.url || "").trim();
 
       return `
         <tr>
           <td style="padding:8px; border-bottom:1px solid #eee;">${index + 1}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item.title)}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item.source || "")}</td>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${linkHtml}</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(text)}</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(source)}</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">
+            ${
+              url
+                ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open</a>`
+                : "-"
+            }
+          </td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">
+            <button
+              type="button"
+              class="use-aphorism-btn"
+              data-text="${escapeHtmlAttribute(text)}"
+            >
+              Use
+            </button>
+          </td>
         </tr>
       `;
     })
     .join("");
 
-  factsBox.innerHTML = `
+  targetBox.innerHTML = `
     <div style="overflow:auto;">
       <table style="width:100%; border-collapse:collapse;">
         <thead>
           <tr>
             <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">#</th>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Title</th>
+            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Text</th>
             <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Source</th>
             <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Link</th>
+            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Action</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+
+  targetBox.querySelectorAll(".use-aphorism-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const text = btn.dataset.text || "";
+      useAphorismForGeneration(text);
+    });
+  });
+}
+
+function useAphorismForGeneration(text) {
+  const prepared = String(text || "").trim();
+  if (!prepared) return;
+
+  const factTextEl = document.getElementById("factText");
+  const useFactTextEl = document.getElementById("useFactText");
+
+  if (factTextEl) {
+    factTextEl.value = prepared;
+  }
+
+  if (useFactTextEl) {
+    useFactTextEl.checked = true;
+  }
+
+  saveFormState();
+  aphorismsStatus.textContent = "Афоризм подставлен в поле Факт.";
+}
+
+/* ================= SHARED TABLE ================= */
+
+function renderSimpleTable(targetBox, items, columns, includeLink = false) {
+  if (!items.length) {
+    targetBox.innerHTML = "<p>Пока пусто.</p>";
+    return;
+  }
+
+  const headers = columns
+    .map((col) => `<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">${escapeHtml(col.label)}</th>`)
+    .join("");
+
+  const rows = items
+    .map((item, index) => {
+      const cells = columns
+        .map((col) => `<td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item[col.key] || "")}</td>`)
+        .join("");
+
+      const linkCell = includeLink
+        ? `<td style="padding:8px; border-bottom:1px solid #eee;">${
+            item.url
+              ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Open</a>`
+              : "-"
+          }</td>`
+        : "";
+
+      return `
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">${index + 1}</td>
+          ${cells}
+          ${linkCell}
+        </tr>
+      `;
+    })
+    .join("");
+
+  targetBox.innerHTML = `
+    <div style="overflow:auto;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">#</th>
+            ${headers}
+            ${includeLink ? `<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Link</th>` : ""}
           </tr>
         </thead>
         <tbody>${rows}</tbody>
@@ -600,6 +731,14 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function escapeHtmlAttribute(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
 function setupTabs() {
