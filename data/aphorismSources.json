@@ -1,17 +1,17 @@
 [
   {
-    "id": "jack-sparrow",
-    "label": "Капитан Джек Воробей",
-    "type": "character",
+    "id": "kapitan-dzhek-vorobei",
+    "label": "kapitan-dzhek-vorobei",
+    "type": "custom",
     "url": "https://citaty.info/character/kapitan-dzhek-vorobei",
     "enabled": true,
     "language": "ru",
     "limit": 30
   },
   {
-    "id": "alice-book",
-    "label": "Алиса в стране чудес",
-    "type": "book",
+    "id": "alisa-v-strane-chudes",
+    "label": "alisa-v-strane-chudes",
+    "type": "custom",
     "url": "https://citaty.info/book/lyuis-kerroll/alisa-v-strane-chudes",
     "enabled": true,
     "language": "ru",
@@ -19,9 +19,18 @@
   },
   {
     "id": "smeshariki",
-    "label": "Смешарики",
-    "type": "animation",
+    "label": "smeshariki",
+    "type": "custom",
     "url": "https://citaty.info/animation/smeshariki",
+    "enabled": true,
+    "language": "ru",
+    "limit": 30
+  },
+  {
+    "id": "voina-i-mir",
+    "label": "voina-i-mir",
+    "type": "custom",
+    "url": "https://citaty.info/book/lev-nikolaevich-tolstoi/voina-i-mir",
     "enabled": true,
     "language": "ru",
     "limit": 30
