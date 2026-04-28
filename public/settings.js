@@ -216,41 +216,14 @@ function createAphorismSourceRow(item = {}) {
   row.innerHTML = `
     <div style="display:grid; gap:10px;">
       <label>
-        <span>ID</span>
-        <input type="text" class="aph-src-id" value="${escapeHtml(item.id || "")}" placeholder="например: jack-sparrow" />
-      </label>
-
-      <label>
-        <span>Название</span>
-        <input type="text" class="aph-src-label" value="${escapeHtml(item.label || "")}" placeholder="Название источника" />
-      </label>
-
-      <label>
-        <span>Тип</span>
-        <input type="text" class="aph-src-type" value="${escapeHtml(item.type || "custom")}" placeholder="character / book / animation / custom" />
-      </label>
-
-      <label>
         <span>URL</span>
         <input type="text" class="aph-src-url" value="${escapeHtml(item.url || "")}" placeholder="https://..." />
       </label>
 
-      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
-        <label>
-          <span>Язык</span>
-          <input type="text" class="aph-src-language" value="${escapeHtml(item.language || "ru")}" placeholder="ru" />
-        </label>
-
-        <label>
-          <span>Лимит</span>
-          <input type="number" class="aph-src-limit" value="${escapeHtml(String(item.limit ?? 30))}" min="1" />
-        </label>
-
-        <label class="checkbox-row" style="align-self:end;">
-          <input type="checkbox" class="aph-src-enabled" ${item.enabled ? "checked" : ""} />
-          Использовать
-        </label>
-      </div>
+      <label class="checkbox-row">
+        <input type="checkbox" class="aph-src-enabled" ${item.enabled !== false ? "checked" : ""} />
+        Использовать
+      </label>
 
       <div>
         <button type="button" class="aph-src-remove-btn">Удалить</button>
@@ -285,17 +258,34 @@ function renderAphorismSources(items) {
 function onAddAphorismSource() {
   aphorismSourcesBox.appendChild(
     createAphorismSourceRow({
-      id: "",
-      label: "",
-      type: "custom",
       url: "",
-      enabled: true,
-      language: "ru",
-      limit: 30
+      enabled: true
     })
   );
 
   aphorismSourcesStatus.textContent = "Добавлен новый источник.";
+}
+
+function makeAphorismSourceMeta(url, index, enabled) {
+  const cleanedUrl = String(url || "").trim();
+
+  let slug = `source-${index + 1}`;
+
+  try {
+    const parsedUrl = new URL(cleanedUrl);
+    const parts = parsedUrl.pathname.split("/").filter(Boolean);
+    slug = parts[parts.length - 1] || slug;
+  } catch {}
+
+  return {
+    id: slug,
+    label: slug,
+    type: "custom",
+    url: cleanedUrl,
+    enabled,
+    language: "ru",
+    limit: 30
+  };
 }
 
 function collectAphorismSourcesForm() {
@@ -303,25 +293,12 @@ function collectAphorismSourcesForm() {
 
   return rows
     .map((row, index) => {
-      const id = String(row.querySelector(".aph-src-id")?.value || "").trim() || `source-${index + 1}`;
-      const label = String(row.querySelector(".aph-src-label")?.value || "").trim();
-      const type = String(row.querySelector(".aph-src-type")?.value || "custom").trim();
       const url = String(row.querySelector(".aph-src-url")?.value || "").trim();
-      const language = String(row.querySelector(".aph-src-language")?.value || "ru").trim();
-      const limitValue = Number(row.querySelector(".aph-src-limit")?.value || 30);
       const enabled = Boolean(row.querySelector(".aph-src-enabled")?.checked);
 
-      return {
-        id,
-        label,
-        type,
-        url,
-        enabled,
-        language,
-        limit: Number.isFinite(limitValue) && limitValue > 0 ? Math.floor(limitValue) : 30
-      };
+      return makeAphorismSourceMeta(url, index, enabled);
     })
-    .filter((item) => item.id && item.label && item.url);
+    .filter((item) => item.url);
 }
 
 async function onSaveAphorismSources() {

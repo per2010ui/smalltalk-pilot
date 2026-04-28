@@ -25,10 +25,41 @@ async function fetchHtml(url) {
   return await response.text();
 }
 
+function cleanSourceTitle(text) {
+  let cleaned = normalizeText(text);
+
+  cleaned = cleaned
+    .replace(/\s*[|—-]\s*citaty\.info.*$/i, "")
+    .replace(/\s*[|—-]\s*цитаты.*$/i, "")
+    .replace(/\s*[|—-]\s*афоризмы.*$/i, "")
+    .replace(/^Цитаты\s*[:—-]\s*/i, "")
+    .replace(/^Цитаты из\s*/i, "")
+    .trim();
+
+  return cleaned;
+}
+
+function extractSourceTitle($, source) {
+  const candidates = [
+    $('meta[property="og:title"]').attr("content"),
+    $('meta[name="twitter:title"]').attr("content"),
+    $("h1").first().text(),
+    $("title").first().text()
+  ];
+
+  for (const candidate of candidates) {
+    const cleaned = cleanSourceTitle(candidate);
+    if (cleaned && cleaned.length >= 3 && cleaned.length <= 120) {
+      return cleaned;
+    }
+  }
+
+  return normalizeText(source.label || source.id || "Источник");
+}
+
 function cleanQuoteText(text) {
   let cleaned = normalizeText(text);
 
-  // обрезаем служебный мусор, который часто идет после цитаты
   const trashMarkers = [
     "Цитата на английском",
     "Скопировать",
@@ -65,7 +96,6 @@ function looksLikeTrash(text, sourceLabel) {
   if (t.length < 12) return true;
   if (t.length > 350) return true;
 
-  // это не афоризм, а мусорные элементы страницы
   const exactTrash = [
     "цитата на английском",
     "скопировать",
@@ -75,10 +105,8 @@ function looksLikeTrash(text, sourceLabel) {
 
   if (exactTrash.includes(t)) return true;
 
-  // отсекаем элементы, которые равны названию персонажа/источника
   if (source && t === source) return true;
 
-  // отсекаем короткие теги и одиночные слова
   if (!/[.!?…—,:;]/.test(text) && text.split(" ").length < 4) return true;
 
   return false;
@@ -87,7 +115,6 @@ function looksLikeTrash(text, sourceLabel) {
 function splitDialogs(text) {
   const cleaned = normalizeText(text);
 
-  // диалог из двух реплик оставляем как есть
   if (cleaned.includes("—") && cleaned.length <= 220) {
     return [cleaned];
   }
@@ -99,10 +126,8 @@ function extractFromCitaty(html, source) {
   const $ = cheerio.load(html);
   const results = [];
   const seen = new Set();
+  const sourceTitle = extractSourceTitle($, source);
 
-  // Основная идея:
-  // берем только крупные карточки цитат/материалов,
-  // вырезаем из них служебные куски и оставляем только сам текст цитаты.
   const candidates = [
     ".views-row",
     ".node-quote",
@@ -116,7 +141,6 @@ function extractFromCitaty(html, source) {
   nodes.each((_, el) => {
     const $node = $(el).clone();
 
-    // удаляем очевидный мусор внутри карточки
     $node.find("script, style, noscript").remove();
     $node.find(".comment-count, .comments, .links, .share, .social-likes").remove();
     $node.find("a[href*='copy'], a[href*='report'], a[href*='share']").remove();
@@ -124,14 +148,14 @@ function extractFromCitaty(html, source) {
 
     let text = cleanQuoteText($node.text());
 
-    if (looksLikeTrash(text, source.label)) return;
+    if (looksLikeTrash(text, sourceTitle)) return;
 
     const parts = splitDialogs(text);
 
     for (const part of parts) {
       const finalText = cleanQuoteText(part);
 
-      if (looksLikeTrash(finalText, source.label)) continue;
+      if (looksLikeTrash(finalText, sourceTitle)) continue;
 
       const key = finalText.toLowerCase();
       if (seen.has(key)) continue;
@@ -142,7 +166,7 @@ function extractFromCitaty(html, source) {
         type: "aphorism",
         title: finalText,
         url: source.url,
-        source: source.label,
+        source: sourceTitle,
         language: source.language || "ru",
         created_at: new Date().toISOString()
       });

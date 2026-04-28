@@ -370,10 +370,7 @@ async function loadNewsList() {
       return;
     }
 
-    renderSimpleTable(newsBox, data.items || [], [
-      { key: "title", label: "Title" },
-      { key: "source", label: "Source" }
-    ], true);
+    renderSelectableContentTable(newsBox, data.items || [], "news");
   } catch (error) {
     newsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
@@ -439,10 +436,7 @@ async function loadFactsList() {
       return;
     }
 
-    renderSimpleTable(factsBox, data.items || [], [
-      { key: "title", label: "Title" },
-      { key: "source", label: "Source" }
-    ], true);
+    renderSelectableContentTable(factsBox, data.items || [], "facts");
   } catch (error) {
     factsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
@@ -508,13 +502,15 @@ async function loadAphorismsList() {
       return;
     }
 
-    renderAphorismsTable(aphorismsBox, data.items || []);
+    renderSelectableContentTable(aphorismsBox, data.items || [], "aphorisms");
   } catch (error) {
     aphorismsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
   }
 }
 
-function renderAphorismsTable(targetBox, items) {
+/* ================= SELECTABLE CONTENT TABLE ================= */
+
+function renderSelectableContentTable(targetBox, items, type) {
   if (!items.length) {
     targetBox.innerHTML = "<p>Пока пусто.</p>";
     return;
@@ -541,8 +537,10 @@ function renderAphorismsTable(targetBox, items) {
           <td style="padding:8px; border-bottom:1px solid #eee;">
             <button
               type="button"
-              class="use-aphorism-btn"
+              class="use-content-btn"
+              data-type="${escapeHtmlAttribute(type)}"
               data-text="${escapeHtmlAttribute(text)}"
+              data-source="${escapeHtmlAttribute(source)}"
             >
               Use
             </button>
@@ -569,23 +567,32 @@ function renderAphorismsTable(targetBox, items) {
     </div>
   `;
 
-  targetBox.querySelectorAll(".use-aphorism-btn").forEach((btn) => {
+  targetBox.querySelectorAll(".use-content-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const text = btn.dataset.text || "";
-      useAphorismForGeneration(text);
+      useContentForGeneration(
+        btn.dataset.text || "",
+        btn.dataset.source || "",
+        btn.dataset.type || ""
+      );
     });
   });
 }
 
-function useAphorismForGeneration(text) {
-  const prepared = String(text || "").trim();
-  if (!prepared) return;
+function useContentForGeneration(text, source, type) {
+  const preparedText = String(text || "").trim();
+  const preparedSource = String(source || "").trim();
+
+  if (!preparedText) return;
+
+  const finalText = preparedSource
+    ? `${preparedText} (источник: ${preparedSource})`
+    : preparedText;
 
   const factTextEl = document.getElementById("factText");
   const useFactTextEl = document.getElementById("useFactText");
 
   if (factTextEl) {
-    factTextEl.value = prepared;
+    factTextEl.value = finalText;
   }
 
   if (useFactTextEl) {
@@ -593,7 +600,20 @@ function useAphorismForGeneration(text) {
   }
 
   saveFormState();
-  aphorismsStatus.textContent = "Афоризм подставлен в поле Факт.";
+
+  const message = "Материал подставлен в поле Факт.";
+
+  if (type === "news" && newsStatus) {
+    newsStatus.textContent = message;
+  }
+
+  if (type === "facts" && factsStatus) {
+    factsStatus.textContent = message;
+  }
+
+  if (type === "aphorisms" && aphorismsStatus) {
+    aphorismsStatus.textContent = message;
+  }
 }
 
 /* ================= SHARED TABLE ================= */
@@ -745,20 +765,28 @@ function setupTabs() {
   const tabs = document.querySelectorAll(".tab-btn");
   const contents = document.querySelectorAll(".tab-content");
 
+  function activateTab(tabName) {
+    tabs.forEach((b) => b.classList.remove("active"));
+    contents.forEach((content) => content.classList.remove("active"));
+
+    const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+    const content = document.getElementById("tab-" + tabName);
+
+    btn?.classList.add("active");
+    content?.classList.add("active");
+  }
+
   tabs.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const target = btn.dataset.tab;
-
-      tabs.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      contents.forEach((content) => {
-        content.classList.remove("active");
-
-        if (content.id === "tab-" + target) {
-          content.classList.add("active");
-        }
-      });
+      activateTab(btn.dataset.tab);
     });
   });
+
+  const hashTab = window.location.hash.replace("#tab-", "");
+
+  if (hashTab) {
+    setTimeout(() => {
+      activateTab(hashTab);
+    }, 0);
+  }
 }
