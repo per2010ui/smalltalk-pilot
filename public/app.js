@@ -264,6 +264,7 @@ async function onGenerate() {
     meetingType: getFieldValue("meetingType"),
     tone: getFieldValue("tone"),
     smallTalkSize: getFieldValue("smallTalkSize"),
+    variantsCount: Number(getFieldValue("variantsCount") || 1),
     conversationInvite: getFieldValue("conversationInvite"),
     languageLevel: getFieldValue("languageLevel"),
     archetype: getFieldValue("archetype"),

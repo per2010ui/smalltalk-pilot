@@ -140,6 +140,7 @@ return [
   "ПРАВИЛА ГЕНЕРАЦИИ",
   rulesBlock,
   "",
+  `Количество вариантов: ${payload.variantsCount}.`,
   "Return only JSON matching the schema."
 ].join("\n");
 }
@@ -172,19 +173,19 @@ function safeParseJson(text) {
   return null;
 }
 
-function normalizeVariants(parsed) {
+function normalizeVariants(parsed, expectedCount) {
   if (!parsed || !Array.isArray(parsed.variants)) {
     return null;
   }
 
   const normalized = parsed.variants
-    .map((item) => ({
-      id: 1,
+    .map((item, index) => ({
+      id: index + 1,
       text: typeof item?.text === "string" ? item.text.trim() : ""
     }))
     .filter((item) => item.text);
 
-  if (normalized.length !== 1) {
+  if (normalized.length !== expectedCount) {
     return null;
   }
 
@@ -228,6 +229,9 @@ app.post("/api/generate", async (req, res) => {
       languageLevel: payload.languageLevel || "",
       archetype: payload.archetype || "",
       smallTalkSize: payload.smallTalkSize || "",
+      variantsCount: [1, 2].includes(Number(payload.variantsCount))
+  ? Number(payload.variantsCount)
+  : 1,
 
       useMentalModel: Boolean(payload.useMentalModel),
       usePrompt1: Boolean(payload.usePrompt1),
@@ -303,13 +307,13 @@ const response = await openai.responses.create({
         properties: {
           variants: {
             type: "array",
-            minItems: 1,
-            maxItems: 1,
+minItems: requestData.variantsCount,
+maxItems: requestData.variantsCount,
             items: {
               type: "object",
               additionalProperties: false,
               properties: {
-                id: { type: "integer", enum: [1] },
+                id: { type: "integer" },
                 text: { type: "string" }
               },
               required: ["id", "text"]
@@ -330,12 +334,12 @@ const response = await openai.responses.create({
     console.log("===== RAW RESPONSE END =====");
 
     const parsed = safeParseJson(rawText);
-    const normalizedVariants = normalizeVariants(parsed);
+    const normalizedVariants = normalizeVariants(parsed, requestData.variantsCount);
 
     if (!normalizedVariants) {
       return res.status(500).json({
         ok: false,
-        error: "Модель не вернула корректный JSON с 1 вариантом",
+       error: `Модель не вернула корректный JSON с ${requestData.variantsCount} вариант(ами)`,
         prompt_preview: prompt,
         raw_output: rawText || "[EMPTY output_text]",
         timing: {
@@ -750,4 +754,4 @@ app.listen(PORT, () => {
   console.log("Server started on http://localhost:" + PORT);
 });
 
-console.log("SUPABASE:", process.env.SUPABASE_URL);
+//console.log("SUPABASE:", process.env.SUPABASE_URL);
