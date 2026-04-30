@@ -1,24 +1,22 @@
-import fs from "fs/promises";
-import path from "path";
+import { supabase } from "./supabaseClient.js";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const FILE_PATH = path.join(DATA_DIR, "dictionaries.json");
+const DICTIONARIES_ID = "main";
 
 const DEFAULT_DICTIONARIES = {
   meetingSize: [
-  {
-    value: "Личная",
-    promptHint: "Можно точнее и живее. Допускается адресность. Не делай слишком формально."
-  },
-  {
-    value: "Группа",
-    promptHint: "Говори нейтрально для группы. Без чрезмерной адресности."
-  },
-  {
-    value: "Группа 20+ (доклад)",
-    promptHint: "Быстрый вход для большой группы. Минимум слов, максимум понятности."
-  }
-],
+    {
+      value: "Личная",
+      promptHint: "Можно точнее и живее. Допускается адресность. Не делай слишком формально."
+    },
+    {
+      value: "Группа",
+      promptHint: "Говори нейтрально для группы. Без чрезмерной адресности."
+    },
+    {
+      value: "Группа 20+ (доклад)",
+      promptHint: "Быстрый вход для большой группы. Минимум слов, максимум понятности."
+    }
+  ],
   meetingType: [
     {
       value: "Agile рутина",
@@ -54,16 +52,16 @@ const DEFAULT_DICTIONARIES = {
     "Деловой",
     "Конфликтный"
   ],
-conversationInvite: [
-  {
-    value: "да",
-    promptHint: "По окончании задать открывающие вопросы."
-  },
-  {
-    value: "нет",
-    promptHint: "По окончании не задавать открывающие вопросы."
-  }
-],
+  conversationInvite: [
+    {
+      value: "да",
+      promptHint: "По окончании задать открывающие вопросы."
+    },
+    {
+      value: "нет",
+      promptHint: "По окончании не задавать открывающие вопросы."
+    }
+  ],
   languageLevel: [
     {
       value: "Высокий",
@@ -111,20 +109,6 @@ conversationInvite: [
     "английский"
   ]
 };
-
-async function ensureFile() {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-
-  try {
-    await fs.access(FILE_PATH);
-  } catch {
-    await fs.writeFile(
-      FILE_PATH,
-      JSON.stringify(DEFAULT_DICTIONARIES, null, 2),
-      "utf-8"
-    );
-  }
-}
 
 function sanitizeStringArray(value) {
   if (!Array.isArray(value)) return [];
@@ -181,7 +165,7 @@ function sanitizeDictionaries(payload = {}) {
     meetingSize: sanitizeRuleArray(payload.meetingSize),
     meetingType: sanitizeRuleArray(payload.meetingType),
     tone: sanitizeStringArray(payload.tone),
-conversationInvite: sanitizeRuleArray(payload.conversationInvite),
+    conversationInvite: sanitizeRuleArray(payload.conversationInvite),
     languageLevel: sanitizeRuleArray(payload.languageLevel),
     smallTalkSize: sanitizeRuleArray(payload.smallTalkSize),
     archetype: sanitizeRuleArray(payload.archetype),
@@ -189,39 +173,48 @@ conversationInvite: sanitizeRuleArray(payload.conversationInvite),
   };
 }
 
-export async function readDictionaries() {
-  await ensureFile();
-  const raw = await fs.readFile(FILE_PATH, "utf-8");
+async function saveDictionariesToDb(data) {
+  const { error } = await supabase
+    .from("dictionaries")
+    .upsert({
+      id: DICTIONARIES_ID,
+      data,
+      updated_at: new Date().toISOString()
+    });
 
-  try {
-    const parsed = JSON.parse(raw);
-    return sanitizeDictionaries(parsed);
-  } catch {
-    return { ...DEFAULT_DICTIONARIES };
+  if (error) {
+    throw new Error(error.message);
   }
 }
 
+export async function readDictionaries() {
+  const { data, error } = await supabase
+    .from("dictionaries")
+    .select("data")
+    .eq("id", DICTIONARIES_ID)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  if (!data?.data) {
+    const prepared = sanitizeDictionaries(DEFAULT_DICTIONARIES);
+    await saveDictionariesToDb(prepared);
+    return prepared;
+  }
+
+  return sanitizeDictionaries(data.data);
+}
+
 export async function saveDictionaries(payload) {
-  await ensureFile();
   const prepared = sanitizeDictionaries(payload);
-
-  await fs.writeFile(
-    FILE_PATH,
-    JSON.stringify(prepared, null, 2),
-    "utf-8"
-  );
-
+  await saveDictionariesToDb(prepared);
   return prepared;
 }
 
 export async function resetDictionaries() {
-  await ensureFile();
-
-  await fs.writeFile(
-    FILE_PATH,
-    JSON.stringify(DEFAULT_DICTIONARIES, null, 2),
-    "utf-8"
-  );
-
-  return { ...DEFAULT_DICTIONARIES };
+  const prepared = sanitizeDictionaries(DEFAULT_DICTIONARIES);
+  await saveDictionariesToDb(prepared);
+  return prepared;
 }
