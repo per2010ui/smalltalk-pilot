@@ -667,22 +667,43 @@ function renderSelectableContentTable(targetBox, items, type) {
   });
 }
 
+function getContentPrefix(type) {
+  if (type === "news") return "Новость";
+  if (type === "facts") return "Факт";
+  if (type === "aphorisms") return "Цитата";
+  return "Материал";
+}
+
+function getNextContentNumber(existingText, prefix) {
+  const regex = new RegExp(`\\(${prefix} \\d+\\)`, "g");
+  const matches = existingText.match(regex) || [];
+  return matches.length + 1;
+}
+
 function useContentForGeneration(text, source, type) {
   const preparedText = String(text || "").trim();
   const preparedSource = String(source || "").trim();
 
   if (!preparedText) return;
 
-  const finalText = preparedSource
-    ? `${preparedText} (источник: ${preparedSource})`
-    : preparedText;
-
   const factTextEl = document.getElementById("factText");
   const useFactTextEl = document.getElementById("useFactText");
 
-  if (factTextEl) {
-    factTextEl.value = finalText;
-  }
+  if (!factTextEl) return;
+
+  const currentText = String(factTextEl.value || "").trim();
+  const prefix = getContentPrefix(type);
+  const nextNumber = getNextContentNumber(currentText, prefix);
+
+  const sourcePart = preparedSource
+    ? ` (источник: ${preparedSource}).`
+    : ".";
+
+  const newLine = `(${prefix} ${nextNumber}) ${preparedText}${sourcePart}`;
+
+  factTextEl.value = currentText
+    ? `${currentText}\n${newLine}`
+    : newLine;
 
   if (useFactTextEl) {
     useFactTextEl.checked = true;
@@ -690,7 +711,7 @@ function useContentForGeneration(text, source, type) {
 
   saveLocalFormState();
 
-  const message = "Материал подставлен в поле Факт.";
+  const message = "Материал добавлен в поле Факт.";
 
   if (type === "news" && newsStatus) {
     newsStatus.textContent = message;
