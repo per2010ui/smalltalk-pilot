@@ -1,10 +1,10 @@
+import { readHistory, saveHistory } from "./services/historyStore.js";
 import { loadAphorisms } from "./services/aphorismsLoader.js";
 import { readAphorisms, mergeAphorisms, clearAphorisms } from "./services/aphorismsStore.js";
 import express from "express";
 import dotenv from "dotenv";
 import OpenAI from "openai";
-import fs from "fs";
-import path from "path";
+
 import { loadNews } from "./services/newsLoader.js";
 import { readNews, mergeNews, clearNews } from "./services/newsStore.js";
 import { loadFacts } from "./services/factsLoader.js";
@@ -20,6 +20,11 @@ import {
   resetAphorismSources
 } from "./services/aphorismSourcesStore.js";
 
+import {
+  readFormSettings,
+  saveFormSettings
+} from "./services/formSettingsStore.js";
+
 dotenv.config();
 
 const app = express();
@@ -32,34 +37,12 @@ const openai = new OpenAI({
 app.use(express.json());
 app.use(express.static("public"));
 
-const DATA_DIR = path.resolve("data");
-const DATA_FILE = path.resolve("data/history.json");
 
-function ensureDataFile() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(DATA_FILE)) {
-    fs.writeFileSync(DATA_FILE, "[]", "utf-8");
-  }
-}
 
-function readHistory() {
-  try {
-    ensureDataFile();
-    const raw = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return [];
-  }
-}
 
-function saveHistory(item) {
-  ensureDataFile();
-  const list = readHistory();
-  list.unshift(item);
-  fs.writeFileSync(DATA_FILE, JSON.stringify(list, null, 2), "utf-8");
-}
+
+
+
 
 function addLine(lines, useFlag, label, value) {
   if (!useFlag) return;
@@ -208,11 +191,21 @@ function normalizeVariants(parsed) {
   return normalized;
 }
 
-app.get("/api/history", (_req, res) => {
-  res.json({
-    ok: true,
-    history: readHistory()
-  });
+app.get("/api/history", async (_req, res) => {
+  try {
+    const history = await readHistory();
+
+    res.json({
+      ok: true,
+      history
+    });
+  } catch (error) {
+    console.error("GET /api/history error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read history"
+    });
+  }
 });
 
 app.post("/api/generate", async (req, res) => {
@@ -391,7 +384,7 @@ const response = await openai.responses.create({
       variants: normalizedVariants
     };
 
-    saveHistory(result);
+    await saveHistory(result);
 
     res.json({
       ok: true,
@@ -718,6 +711,43 @@ app.delete("/aphorisms", async (_req, res) => {
   }
 });
 
+app.get("/api/form-settings", async (_req, res) => {
+  try {
+    const settings = await readFormSettings();
+
+    res.json({
+      ok: true,
+      settings
+    });
+  } catch (error) {
+    console.error("GET /api/form-settings error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read form settings"
+    });
+  }
+});
+
+app.put("/api/form-settings", async (req, res) => {
+  try {
+    const payload = req.body || {};
+    const settings = await saveFormSettings(payload);
+
+    res.json({
+      ok: true,
+      settings
+    });
+  } catch (error) {
+    console.error("PUT /api/form-settings error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to save form settings"
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log("Server started on http://localhost:" + PORT);
 });
+
+console.log("SUPABASE:", process.env.SUPABASE_URL);

@@ -1,1 +1,2423 @@
-[]
+[
+  {
+    "id": "1777552856088_0.2619171920849578",
+    "type": "fact",
+    "title": "2003 — Emily Carey, British actress",
+    "url": "https://en.wikipedia.org/wiki/Emily_Carey",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9265075522835949",
+    "type": "fact",
+    "title": "2003 — Jung Yun-seok, South Korean actor",
+    "url": "https://en.wikipedia.org/wiki/Jung_Yoon-seok",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2151121614503495",
+    "type": "fact",
+    "title": "2002 — Anna Cramling, Spanish-Swedish chess player",
+    "url": "https://en.wikipedia.org/wiki/Anna_Cramling",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.38451191425198783",
+    "type": "fact",
+    "title": "2002 — Teden Mengi, English footballer",
+    "url": "https://en.wikipedia.org/wiki/Teden_Mengi",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.461705462680972",
+    "type": "fact",
+    "title": "2001 — Nathan Collins, Irish footballer",
+    "url": "https://en.wikipedia.org/wiki/Nathan_Collins",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1554451228989917",
+    "type": "fact",
+    "title": "2000 — Yui Hiwatashi, Japanese singer",
+    "url": "https://en.wikipedia.org/wiki/Yui_Hiwatashi",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.27385843912391983",
+    "type": "fact",
+    "title": "2000 — Dean James, Indonesian footballer",
+    "url": "https://en.wikipedia.org/wiki/Dean_James_(footballer)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7057506840155063",
+    "type": "fact",
+    "title": "1999 — Jorden van Foreest, Dutch chess grandmaster",
+    "url": "https://en.wikipedia.org/wiki/Jorden_van_Foreest",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2369402414767693",
+    "type": "fact",
+    "title": "1999 — Krit Amnuaydechkorn, Thai actor and singer",
+    "url": "https://en.wikipedia.org/wiki/Krit_Amnuaydechkorn",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.05902976128136006",
+    "type": "fact",
+    "title": "1998 — Georgina Amorós, Spanish actress",
+    "url": "https://en.wikipedia.org/wiki/Georgina_Amor%C3%B3s",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9838819244964216",
+    "type": "fact",
+    "title": "1997 — Adam Ryczkowski, Polish footballer",
+    "url": "https://en.wikipedia.org/wiki/Adam_Ryczkowski",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6724950489222326",
+    "type": "fact",
+    "title": "1996 — Luke Friend, English singer",
+    "url": "https://en.wikipedia.org/wiki/Luke_Friend",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3853007803340105",
+    "type": "fact",
+    "title": "1994 — Chae Seo-jin, South Korean actress",
+    "url": "https://en.wikipedia.org/wiki/Chae_Seo-jin",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5976832320631271",
+    "type": "fact",
+    "title": "1994 — Wang Yafan, Chinese tennis player",
+    "url": "https://en.wikipedia.org/wiki/Wang_Yafan",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6416011301868391",
+    "type": "fact",
+    "title": "1993 — Dion Dreesens, Dutch swimmer",
+    "url": "https://en.wikipedia.org/wiki/Dion_Dreesens",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.44357231850851686",
+    "type": "fact",
+    "title": "1993 — Martin Fuksa, Czech canoeist",
+    "url": "https://en.wikipedia.org/wiki/Martin_Fuksa",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.33349829950432675",
+    "type": "fact",
+    "title": "1992 — Marcel Bauer, German politician",
+    "url": "https://en.wikipedia.org/wiki/Marcel_Bauer",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.034884234897501365",
+    "type": "fact",
+    "title": "1992 — Goodnight Chicken, Taiwanese YouTuber",
+    "url": "https://en.wikipedia.org/wiki/Goodnight_Chicken",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9053064260152646",
+    "type": "fact",
+    "title": "1992 — Marc-André ter Stegen, German footballer",
+    "url": "https://en.wikipedia.org/wiki/Marc-Andr%C3%A9_ter_Stegen",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9637597918418002",
+    "type": "fact",
+    "title": "1991 — Chris Kreider, American ice hockey player",
+    "url": "https://en.wikipedia.org/wiki/Chris_Kreider",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3256446431180766",
+    "type": "fact",
+    "title": "1991 — Travis Scott, American rapper and producer",
+    "url": "https://en.wikipedia.org/wiki/Travis_Scott",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4683922315259391",
+    "type": "fact",
+    "title": "1990 — Jonny Brownlee, English triathlete",
+    "url": "https://en.wikipedia.org/wiki/Jonny_Brownlee",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9893929781341543",
+    "type": "fact",
+    "title": "1990 — Mac DeMarco, Canadian singer-songwriter",
+    "url": "https://en.wikipedia.org/wiki/Mac_DeMarco",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.040435493446981274",
+    "type": "fact",
+    "title": "1990 — Kaarel Kiidron, Estonian footballer",
+    "url": "https://en.wikipedia.org/wiki/Kaarel_Kiidron",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5455544575673894",
+    "type": "fact",
+    "title": "1990 — Paula Ribó, Spanish singer-songwriter and actress",
+    "url": "https://en.wikipedia.org/wiki/Paula_Rib%C3%B3",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7604664877819803",
+    "type": "fact",
+    "title": "1989 — Jang Wooyoung, South Korean singer and actor",
+    "url": "https://en.wikipedia.org/wiki/Jang_Wooyoung",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3234137426179655",
+    "type": "fact",
+    "title": "1988 — Andy Allen, Australian chef",
+    "url": "https://en.wikipedia.org/wiki/Andy_Allen_(chef)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.29689000379291863",
+    "type": "fact",
+    "title": "1988 — Sander Baart, Dutch field hockey player",
+    "url": "https://en.wikipedia.org/wiki/Sander_Baart",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.019894136050444877",
+    "type": "fact",
+    "title": "1988 — Ana de Armas, Cuban actress",
+    "url": "https://en.wikipedia.org/wiki/Ana_de_Armas",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.06218424764729158",
+    "type": "fact",
+    "title": "1988 — Liu Xijun, Chinese singer",
+    "url": "https://en.wikipedia.org/wiki/Liu_Xijun",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.36536030073468884",
+    "type": "fact",
+    "title": "1988 — Oh Hye-ri, South Korean taekwondo athlete",
+    "url": "https://en.wikipedia.org/wiki/Oh_Hye-ri",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.08888557769037353",
+    "type": "fact",
+    "title": "1987 — Alipate Carlile, Australian footballer",
+    "url": "https://en.wikipedia.org/wiki/Alipate_Carlile",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.39442481831127796",
+    "type": "fact",
+    "title": "1987 — Chris Morris, South African cricketer",
+    "url": "https://en.wikipedia.org/wiki/Chris_Morris_(cricketer)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.715287896406269",
+    "type": "fact",
+    "title": "1987 — Rohit Sharma, Indian cricketer",
+    "url": "https://en.wikipedia.org/wiki/Rohit_Sharma",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9553653185551402",
+    "type": "fact",
+    "title": "1986 — Dianna Agron, American actress and singer",
+    "url": "https://en.wikipedia.org/wiki/Dianna_Agron",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7190825918699189",
+    "type": "fact",
+    "title": "1986 — Martten Kaldvee, Estonian biathlete",
+    "url": "https://en.wikipedia.org/wiki/Martten_Kaldvee",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.340262783509913",
+    "type": "fact",
+    "title": "1985 — Brandon Bass, American basketball player",
+    "url": "https://en.wikipedia.org/wiki/Brandon_Bass",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8977447798757813",
+    "type": "fact",
+    "title": "1985 — Gal Gadot, Israeli actress and model",
+    "url": "https://en.wikipedia.org/wiki/Gal_Gadot",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6092243386657769",
+    "type": "fact",
+    "title": "1985 — Ashley Alexandra Dupré, American journalist, singer, and prostitute",
+    "url": "https://en.wikipedia.org/wiki/Ashley_Alexandra_Dupr%C3%A9",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.09587245000805733",
+    "type": "fact",
+    "title": "1984 — Seimone Augustus, American basketball player",
+    "url": "https://en.wikipedia.org/wiki/Seimone_Augustus",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.13287897476608912",
+    "type": "fact",
+    "title": "1984 — Shawn Daivari, American wrestler and manager",
+    "url": "https://en.wikipedia.org/wiki/Shawn_Daivari",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.07502903497200863",
+    "type": "fact",
+    "title": "1984 — Risto Mätas, Estonian javelin thrower",
+    "url": "https://en.wikipedia.org/wiki/Risto_M%C3%A4tas",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5830382874421983",
+    "type": "fact",
+    "title": "1984 — Lee Roache, English footballer",
+    "url": "https://en.wikipedia.org/wiki/Lee_Roache",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7856175077224392",
+    "type": "fact",
+    "title": "1983 — Chris Carr, American football player",
+    "url": "https://en.wikipedia.org/wiki/Chris_Carr_(American_football)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.30884767477857566",
+    "type": "fact",
+    "title": "1983 — Tatjana Hüfner, German luger",
+    "url": "https://en.wikipedia.org/wiki/Tatjana_H%C3%BCfner",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2092467190812839",
+    "type": "fact",
+    "title": "1983 — Marina Tomić, Slovenian hurdler",
+    "url": "https://en.wikipedia.org/wiki/Marina_Tomi%C4%87",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4832829242691762",
+    "type": "fact",
+    "title": "1983 — Troy Williamson, American football player",
+    "url": "https://en.wikipedia.org/wiki/Troy_Williamson",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.09595135912466013",
+    "type": "fact",
+    "title": "1982 — Kirsten Dunst, American actress",
+    "url": "https://en.wikipedia.org/wiki/Kirsten_Dunst",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.45463789594075665",
+    "type": "fact",
+    "title": "1982 — Drew Seeley, Canadian-American singer-songwriter, dancer, and actor",
+    "url": "https://en.wikipedia.org/wiki/Drew_Seeley",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.49828005744368475",
+    "type": "fact",
+    "title": "1981 — Nicole Kaczmarski, American basketball player",
+    "url": "https://en.wikipedia.org/wiki/Nicole_Kaczmarski",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6537415593483098",
+    "type": "fact",
+    "title": "1981 — John O'Shea, Irish footballer",
+    "url": "https://en.wikipedia.org/wiki/John_O'Shea",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2974500157598646",
+    "type": "fact",
+    "title": "1981 — Kunal Nayyar, British-Indian actor",
+    "url": "https://en.wikipedia.org/wiki/Kunal_Nayyar",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2097074830983443",
+    "type": "fact",
+    "title": "1981 — Justin Vernon, American singer-songwriter, multi-instrumentalist, and producer",
+    "url": "https://en.wikipedia.org/wiki/Justin_Vernon",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8611789522634089",
+    "type": "fact",
+    "title": "1980 — Luis Scola, Argentinian basketball player",
+    "url": "https://en.wikipedia.org/wiki/Luis_Scola",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.41775185016904826",
+    "type": "fact",
+    "title": "1980 — Jeroen Verhoeven, Dutch footballer",
+    "url": "https://en.wikipedia.org/wiki/Jeroen_Verhoeven",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.16656072258059973",
+    "type": "fact",
+    "title": "1979 — Gerardo Torrado, Mexican footballer",
+    "url": "https://en.wikipedia.org/wiki/Gerardo_Torrado",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9287045811902691",
+    "type": "fact",
+    "title": "1978 — Liljay, Taiwanese singer",
+    "url": "https://en.wikipedia.org/wiki/Liljay",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.09322545712678088",
+    "type": "fact",
+    "title": "1977 — Jeannie Haddaway-Riccio, American politician",
+    "url": "https://en.wikipedia.org/wiki/Jeannie_Haddaway-Riccio",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6763936687681662",
+    "type": "fact",
+    "title": "1977 — Meredith L. Patterson, American technologist, journalist, and author",
+    "url": "https://en.wikipedia.org/wiki/Meredith_L._Patterson",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8799394796193873",
+    "type": "fact",
+    "title": "1976 — Davian Clarke, Jamaican sprinter",
+    "url": "https://en.wikipedia.org/wiki/Davian_Clarke",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.40614714267383256",
+    "type": "fact",
+    "title": "1976 — Amanda Palmer, American singer-songwriter and pianist",
+    "url": "https://en.wikipedia.org/wiki/Amanda_Palmer",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7243280708046871",
+    "type": "fact",
+    "title": "1976 — Daniel Wagon, Australian rugby league player",
+    "url": "https://en.wikipedia.org/wiki/Daniel_Wagon",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9365250322252457",
+    "type": "fact",
+    "title": "1976 — Victor Glover, American astronaut",
+    "url": "https://en.wikipedia.org/wiki/Victor_Glover",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.17446576296735639",
+    "type": "fact",
+    "title": "1975 — Johnny Galecki, American actor",
+    "url": "https://en.wikipedia.org/wiki/Johnny_Galecki",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5692621855170619",
+    "type": "fact",
+    "title": "1974 — Christian Tamminga, Dutch athlete",
+    "url": "https://en.wikipedia.org/wiki/Christian_Tamminga",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.45985445783975587",
+    "type": "fact",
+    "title": "1973 — Leigh Francis, English comedian and actor",
+    "url": "https://en.wikipedia.org/wiki/Leigh_Francis",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.11895131806121284",
+    "type": "fact",
+    "title": "1972 — Takako Tokiwa, Japanese actress",
+    "url": "https://en.wikipedia.org/wiki/Takako_Tokiwa",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.37409821066153837",
+    "type": "fact",
+    "title": "1969 — Justine Greening, English accountant and politician, Secretary of State for International Development",
+    "url": "https://en.wikipedia.org/wiki/Justine_Greening",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.11523917216914059",
+    "type": "fact",
+    "title": "1969 — Paulo Jr., Brazilian bass player",
+    "url": "https://en.wikipedia.org/wiki/Paulo_Jr.",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1383353924273214",
+    "type": "fact",
+    "title": "1967 — Phil Chang, Taiwanese singer-songwriter and actor",
+    "url": "https://en.wikipedia.org/wiki/Phil_Chang",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7185625476305036",
+    "type": "fact",
+    "title": "1967 — Philipp Kirkorov, Bulgarian-born Russian singer, composer and actor",
+    "url": "https://en.wikipedia.org/wiki/Philipp_Kirkorov",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7066532524717526",
+    "type": "fact",
+    "title": "1967 — Turbo B, American rapper",
+    "url": "https://en.wikipedia.org/wiki/Turbo_B",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9694811083525465",
+    "type": "fact",
+    "title": "1966 — Jeff Brown, Canadian ice hockey player and coach",
+    "url": "https://en.wikipedia.org/wiki/Jeff_Brown_(ice_hockey%2C_born_1966)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7644140196359142",
+    "type": "fact",
+    "title": "1966 — Dave Meggett, American football player and coach",
+    "url": "https://en.wikipedia.org/wiki/Dave_Meggett",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.505084363195027",
+    "type": "fact",
+    "title": "1965 — Daniela Costian, Romanian-Australian discus thrower",
+    "url": "https://en.wikipedia.org/wiki/Daniela_Costian",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4879517844381047",
+    "type": "fact",
+    "title": "1965 — Adrian Pasdar, American actor",
+    "url": "https://en.wikipedia.org/wiki/Adrian_Pasdar",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6611119902691017",
+    "type": "fact",
+    "title": "1964 — Tony Fernandes, Malaysian-Indian businessman, co-founded Tune Group",
+    "url": "https://en.wikipedia.org/wiki/Tony_Fernandes",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2786550011975293",
+    "type": "fact",
+    "title": "1964 — Ian Healy, Australian cricketer, coach, and sportscaster",
+    "url": "https://en.wikipedia.org/wiki/Ian_Healy",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4110242758540156",
+    "type": "fact",
+    "title": "1964 — Lorenzo Staelens, Belgian footballer and manager",
+    "url": "https://en.wikipedia.org/wiki/Lorenzo_Staelens",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.22865391750391362",
+    "type": "fact",
+    "title": "1964 — Abhishek Chatterjee, Indian actor (died 2022)",
+    "url": "https://en.wikipedia.org/wiki/Abhishek_Chatterjee",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.28745020653795994",
+    "type": "fact",
+    "title": "1963 — Andrew Carwood, English tenor and conductor",
+    "url": "https://en.wikipedia.org/wiki/Andrew_Carwood",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.180646105265035",
+    "type": "fact",
+    "title": "1963 — Michael Waltrip, American race car driver and sportscaster",
+    "url": "https://en.wikipedia.org/wiki/Michael_Waltrip",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.12627557291705116",
+    "type": "fact",
+    "title": "1961 — Arnór Guðjohnsen, Icelandic footballer",
+    "url": "https://en.wikipedia.org/wiki/Arn%C3%B3r_Gu%C3%B0johnsen",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.06990803756380048",
+    "type": "fact",
+    "title": "1961 — Isiah Thomas, American basketball player, coach, and sportscaster",
+    "url": "https://en.wikipedia.org/wiki/Isiah_Thomas",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.42433683438804926",
+    "type": "fact",
+    "title": "1960 — Geoffrey Cox, English lawyer and politician",
+    "url": "https://en.wikipedia.org/wiki/Geoffrey_Cox_(British_politician)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4825959237341393",
+    "type": "fact",
+    "title": "1960 — Kerry Healey, American academic and politician, 70th Lieutenant Governor of Massachusetts",
+    "url": "https://en.wikipedia.org/wiki/Kerry_Healey",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4712244206562326",
+    "type": "fact",
+    "title": "1958 — Charles Berling, French actor, director, and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Charles_Berling",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6144995797102778",
+    "type": "fact",
+    "title": "1957 — Wonder Mike, American rapper and songwriter",
+    "url": "https://en.wikipedia.org/wiki/Wonder_Mike",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6272667969916311",
+    "type": "fact",
+    "title": "1956 — Lars von Trier, Danish director and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Lars_von_Trier",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.621966914685694",
+    "type": "fact",
+    "title": "1955 — Nicolas Hulot, French journalist and environmentalist",
+    "url": "https://en.wikipedia.org/wiki/Nicolas_Hulot",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.15815330660748872",
+    "type": "fact",
+    "title": "1955 — David Kitchin, English lawyer and judge",
+    "url": "https://en.wikipedia.org/wiki/David_Kitchin%2C_Lord_Kitchin",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8617227579743633",
+    "type": "fact",
+    "title": "1955 — Pradeep Sarkar, Indian director and screenwriter (died 2023)",
+    "url": "https://en.wikipedia.org/wiki/Pradeep_Sarkar",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8250518030609082",
+    "type": "fact",
+    "title": "1955 — Zlatko Topčić, Bosnian writer and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Zlatko_Top%C4%8Di%C4%87",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1682671479589799",
+    "type": "fact",
+    "title": "1954 — Jane Campion, New Zealand director, producer, and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Jane_Campion",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.14851878496160698",
+    "type": "fact",
+    "title": "1954 — Kim Darroch, English diplomat, UK Permanent Representative to the European Union",
+    "url": "https://en.wikipedia.org/wiki/Kim_Darroch",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.24966957559174618",
+    "type": "fact",
+    "title": "1954 — Frank-Michael Marczewski, German footballer",
+    "url": "https://en.wikipedia.org/wiki/Frank-Michael_Marczewski",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4345626192234263",
+    "type": "fact",
+    "title": "1953 — Merrill Osmond, American singer and bass player",
+    "url": "https://en.wikipedia.org/wiki/Merrill_Osmond",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5607169714606589",
+    "type": "fact",
+    "title": "1952 — Jacques Audiard, French director and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Jacques_Audiard",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.21368167830221207",
+    "type": "fact",
+    "title": "1952 — Jack Middelburg, Dutch motorcycle racer (died 1984)",
+    "url": "https://en.wikipedia.org/wiki/Jack_Middelburg",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.04680844524965189",
+    "type": "fact",
+    "title": "1949 — Phil Garner, American baseball player and manager (died 2026)",
+    "url": "https://en.wikipedia.org/wiki/Phil_Garner",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9045613447841938",
+    "type": "fact",
+    "title": "1949 — Karl Meiler, German tennis player (died 2014)",
+    "url": "https://en.wikipedia.org/wiki/Karl_Meiler",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3526369152619506",
+    "type": "fact",
+    "title": "1948 — Wayne Kramer, American guitarist and singer-songwriter (died 2024)",
+    "url": "https://en.wikipedia.org/wiki/Wayne_Kramer",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6390993736193193",
+    "type": "fact",
+    "title": "1948 — Pierre Pagé, Canadian ice hockey player and coach",
+    "url": "https://en.wikipedia.org/wiki/Pierre_Pag%C3%A9",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5182903397157879",
+    "type": "fact",
+    "title": "1948 — Margit Papp, Hungarian athlete",
+    "url": "https://en.wikipedia.org/wiki/Margit_Papp",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4969317130823029",
+    "type": "fact",
+    "title": "1947 — Paul Fiddes, English theologian and academic",
+    "url": "https://en.wikipedia.org/wiki/Paul_Fiddes",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5226123921199203",
+    "type": "fact",
+    "title": "1947 — Finn Kalvik, Norwegian singer-songwriter and guitarist",
+    "url": "https://en.wikipedia.org/wiki/Finn_Kalvik",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6457713095846861",
+    "type": "fact",
+    "title": "1947 — Tom Køhlert, Danish footballer and manager",
+    "url": "https://en.wikipedia.org/wiki/Tom_K%C3%B8hlert",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7605239013956426",
+    "type": "fact",
+    "title": "1947 — Mats Odell, Swedish economist and politician, Swedish Minister for Financial Markets",
+    "url": "https://en.wikipedia.org/wiki/Mats_Odell",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.44622359106541853",
+    "type": "fact",
+    "title": "1946 — Bill Plympton, American animator, producer, and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Bill_Plympton",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1491459820930895",
+    "type": "fact",
+    "title": "1946 — Don Schollander, American swimmer",
+    "url": "https://en.wikipedia.org/wiki/Don_Schollander",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9431691939943825",
+    "type": "fact",
+    "title": "1945 — J. Michael Brady, British radiologist",
+    "url": "https://en.wikipedia.org/wiki/Michael_Brady_(biomedical_engineer)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.21835444901739187",
+    "type": "fact",
+    "title": "1945 — Annie Dillard, American novelist, essayist, and poet",
+    "url": "https://en.wikipedia.org/wiki/Annie_Dillard",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4157285303678476",
+    "type": "fact",
+    "title": "1945 — Mimi Fariña, American singer-songwriter, guitarist, and activist (died 2001)",
+    "url": "https://en.wikipedia.org/wiki/Mimi_Fari%C3%B1a",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.573298431599581",
+    "type": "fact",
+    "title": "1945 — Michael J. Smith, American pilot, and astronaut (died 1986)",
+    "url": "https://en.wikipedia.org/wiki/Michael_J._Smith",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4100541548536084",
+    "type": "fact",
+    "title": "1944 — Jon Bing, Norwegian author, scholar, and academic (died 2014)",
+    "url": "https://en.wikipedia.org/wiki/Jon_Bing",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8585064569443401",
+    "type": "fact",
+    "title": "1944 — Jill Clayburgh, American actress (died 2010)",
+    "url": "https://en.wikipedia.org/wiki/Jill_Clayburgh",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5424820933043475",
+    "type": "fact",
+    "title": "1943 — Bobby Vee, American pop singer-songwriter (died 2016)",
+    "url": "https://en.wikipedia.org/wiki/Bobby_Vee",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4312096932277175",
+    "type": "fact",
+    "title": "1942 — Sallehuddin of Kedah, Sultan of Kedah",
+    "url": "https://en.wikipedia.org/wiki/Sallehuddin_of_Kedah",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.04876147628245686",
+    "type": "fact",
+    "title": "1941 — Stavros Dimas, Greek lawyer and politician, Greek Minister of Foreign Affairs",
+    "url": "https://en.wikipedia.org/wiki/Stavros_Dimas",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8256166806746675",
+    "type": "fact",
+    "title": "1941 — Max Merritt, New Zealand-Australian singer-songwriter (died 2020)",
+    "url": "https://en.wikipedia.org/wiki/Max_Merritt",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7836017719136181",
+    "type": "fact",
+    "title": "1940 — Jeroen Brouwers, Dutch journalist and writer (died 2022)",
+    "url": "https://en.wikipedia.org/wiki/Jeroen_Brouwers",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6401615094670517",
+    "type": "fact",
+    "title": "1940 — Michael Cleary, Australian rugby player and politician",
+    "url": "https://en.wikipedia.org/wiki/Michael_Cleary_(rugby)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.22125210533620043",
+    "type": "fact",
+    "title": "1940 — Ülo Õun, Estonian sculptor (died 1988)",
+    "url": "https://en.wikipedia.org/wiki/%C3%9Clo_%C3%95un",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7119949073665186",
+    "type": "fact",
+    "title": "1940 — Burt Young, American actor and painter (died 2023)",
+    "url": "https://en.wikipedia.org/wiki/Burt_Young",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.37511276401632554",
+    "type": "fact",
+    "title": "1938 — Gary Collins, American actor and talk show host (died 2012)",
+    "url": "https://en.wikipedia.org/wiki/Gary_Collins_(actor)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.04113684444329391",
+    "type": "fact",
+    "title": "1938 — Juraj Jakubisko, Slovak director and screenwriter (died 2023)",
+    "url": "https://en.wikipedia.org/wiki/Juraj_Jakubisko",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9547457242925936",
+    "type": "fact",
+    "title": "1938 — Larry Niven, American author and screenwriter",
+    "url": "https://en.wikipedia.org/wiki/Larry_Niven",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.09371816043915338",
+    "type": "fact",
+    "title": "1937 — Tony Harrison, English poet and playwright (died 2025)",
+    "url": "https://en.wikipedia.org/wiki/Tony_Harrison",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8383423336967246",
+    "type": "fact",
+    "title": "1934 — Jerry Lordan, English singer-songwriter (died 1995)",
+    "url": "https://en.wikipedia.org/wiki/Jerry_Lordan",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.880657807026818",
+    "type": "fact",
+    "title": "1934 — Don McKenney, Canadian ice hockey player and coach (died 2022)",
+    "url": "https://en.wikipedia.org/wiki/Don_McKenney",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7622227616635374",
+    "type": "fact",
+    "title": "1933 — Charles Sanderson, Baron Sanderson of Bowden, English politician",
+    "url": "https://en.wikipedia.org/wiki/Charles_Sanderson%2C_Baron_Sanderson_of_Bowden",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6858828727960831",
+    "type": "fact",
+    "title": "1930 — Félix Guattari, French psychotherapist and philosopher (died 1992)",
+    "url": "https://en.wikipedia.org/wiki/F%C3%A9lix_Guattari",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8848686880409503",
+    "type": "fact",
+    "title": "1928 — Hugh Hood, Canadian author and academic (died 2000)",
+    "url": "https://en.wikipedia.org/wiki/Hugh_Hood",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9797856471338509",
+    "type": "fact",
+    "title": "1928 — Orlando Sirola, Italian tennis player (died 1995)",
+    "url": "https://en.wikipedia.org/wiki/Orlando_Sirola",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.29429463437386083",
+    "type": "fact",
+    "title": "1926 — Shrinivas Khale, Indian composer (died 2011)",
+    "url": "https://en.wikipedia.org/wiki/Shrinivas_Khale",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7864240970640275",
+    "type": "fact",
+    "title": "1926 — Cloris Leachman, American actress and comedian (died 2021)",
+    "url": "https://en.wikipedia.org/wiki/Cloris_Leachman",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.18179007458906138",
+    "type": "fact",
+    "title": "1925 — Corinne Calvet, French actress (died 2001)",
+    "url": "https://en.wikipedia.org/wiki/Corinne_Calvet",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.33779414819402953",
+    "type": "fact",
+    "title": "1925 — Johnny Horton, American singer-songwriter and guitarist (died 1960)",
+    "url": "https://en.wikipedia.org/wiki/Johnny_Horton",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9417725251557504",
+    "type": "fact",
+    "title": "1924 — Sheldon Harnick, American lyricist (died 2023)",
+    "url": "https://en.wikipedia.org/wiki/Sheldon_Harnick",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9736228428640121",
+    "type": "fact",
+    "title": "1924 — Uno Laht, Estonian KGB officer and author (died 2008)",
+    "url": "https://en.wikipedia.org/wiki/Uno_Laht",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.06788123831205217",
+    "type": "fact",
+    "title": "1923 — Percy Heath, American bassist (died 2005)",
+    "url": "https://en.wikipedia.org/wiki/Percy_Heath",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8313013597211015",
+    "type": "fact",
+    "title": "1923 — Kagamisato Kiyoji, Japanese sumo wrestler, the 42nd Yokozuna (died 2004)",
+    "url": "https://en.wikipedia.org/wiki/Kagamisato_Kiyoji",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.36591846873528466",
+    "type": "fact",
+    "title": "1922 — Anton Murray, South African cricketer (died 1995)",
+    "url": "https://en.wikipedia.org/wiki/Anton_Murray",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5523072500231614",
+    "type": "fact",
+    "title": "1921 — Roger L. Easton, American scientist, co-invented the GPS (died 2014)",
+    "url": "https://en.wikipedia.org/wiki/Roger_L._Easton",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5678509779210258",
+    "type": "fact",
+    "title": "1920 — Duncan Hamilton, Irish-English race car driver and pilot (died 1994)",
+    "url": "https://en.wikipedia.org/wiki/Duncan_Hamilton_(racing_driver)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8923408949245957",
+    "type": "fact",
+    "title": "1920 — Gerda Lerner, Austrian-American historian and woman's history author (died 2013)",
+    "url": "https://en.wikipedia.org/wiki/Gerda_Lerner",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.25518980085867116",
+    "type": "fact",
+    "title": "1920 — Tom Moore, British army officer and fundraiser (died 2021)",
+    "url": "https://en.wikipedia.org/wiki/Captain_Tom_Moore",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.938286940144605",
+    "type": "fact",
+    "title": "1917 — Bea Wain, American singer (died 2017)",
+    "url": "https://en.wikipedia.org/wiki/Bea_Wain",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.09480865725110099",
+    "type": "fact",
+    "title": "1916 — Paul Kuusberg, Estonian journalist and author (died 2003)",
+    "url": "https://en.wikipedia.org/wiki/Paul_Kuusberg",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9350816044443901",
+    "type": "fact",
+    "title": "1916 — Claude Shannon, American mathematician and engineer (died 2001)",
+    "url": "https://en.wikipedia.org/wiki/Claude_Shannon",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.47218925495324915",
+    "type": "fact",
+    "title": "1916 — Robert Shaw, American conductor (died 1999)",
+    "url": "https://en.wikipedia.org/wiki/Robert_Shaw_(conductor)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2825476973478618",
+    "type": "fact",
+    "title": "1914 — Charles Beetham, American middle-distance runner (died 1997)",
+    "url": "https://en.wikipedia.org/wiki/Charles_Beetham",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7014765158082946",
+    "type": "fact",
+    "title": "1914 — Dorival Caymmi, Brazilian singer-songwriter, actor, and painter (died 2008)",
+    "url": "https://en.wikipedia.org/wiki/Dorival_Caymmi",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7170946953502119",
+    "type": "fact",
+    "title": "1910 — Levi Celerio, Filipino pianist, violinist, and composer (died 2002)",
+    "url": "https://en.wikipedia.org/wiki/Levi_Celerio",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.950770016479228",
+    "type": "fact",
+    "title": "1909 — F. E. McWilliam, Irish sculptor and educator (died 1992)",
+    "url": "https://en.wikipedia.org/wiki/F._E._McWilliam",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6743228325329147",
+    "type": "fact",
+    "title": "1909 — Juliana of the Netherlands (died 2004)",
+    "url": "https://en.wikipedia.org/wiki/Juliana_of_the_Netherlands",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6887265367359714",
+    "type": "fact",
+    "title": "1908 — Eve Arden, American actress (died 1990)",
+    "url": "https://en.wikipedia.org/wiki/Eve_Arden",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2738958357228626",
+    "type": "fact",
+    "title": "1908 — Frank Robert Miller, Canadian air marshal and politician (died 1997)",
+    "url": "https://en.wikipedia.org/wiki/Frank_Robert_Miller",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5248202059644608",
+    "type": "fact",
+    "title": "1905 — Sergey Nikolsky, Russian mathematician and academic (died 2012)",
+    "url": "https://en.wikipedia.org/wiki/Sergey_Nikolsky",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3677250884498968",
+    "type": "fact",
+    "title": "1902 — Theodore Schultz, American economist and academic, Nobel Prize laureate (died 1998)",
+    "url": "https://en.wikipedia.org/wiki/Theodore_Schultz",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7866443475219054",
+    "type": "fact",
+    "title": "1901 — Simon Kuznets, Belarusian-American economist, statistician, and academic, Nobel Prize laureate (died 1985)",
+    "url": "https://en.wikipedia.org/wiki/Simon_Kuznets",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7545684978423433",
+    "type": "fact",
+    "title": "1900 — Erni Krusten, Estonian author and poet (died 1984)",
+    "url": "https://en.wikipedia.org/wiki/Erni_Krusten",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.14141764327557915",
+    "type": "fact",
+    "title": "1897 — Humberto Mauro, Brazilian director and screenwriter (died 1983)",
+    "url": "https://en.wikipedia.org/wiki/Humberto_Mauro",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6365129090452583",
+    "type": "fact",
+    "title": "1896 — Reverend Gary Davis, American singer and guitarist (died 1972)",
+    "url": "https://en.wikipedia.org/wiki/Reverend_Gary_Davis",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6215433002731009",
+    "type": "fact",
+    "title": "1896 — Hans List, Austrian scientist and businessman, founded the AVL Engineering Company (died 1996)",
+    "url": "https://en.wikipedia.org/wiki/Hans_List",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.28965752934360367",
+    "type": "fact",
+    "title": "1895 — Philippe Panneton, Canadian physician, academic, and diplomat (died 1960)",
+    "url": "https://en.wikipedia.org/wiki/Philippe_Panneton",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9358973776345049",
+    "type": "fact",
+    "title": "1893 — Harold Breen, Australian public servant (died 1966)",
+    "url": "https://en.wikipedia.org/wiki/Harold_Breen",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4237038836719187",
+    "type": "fact",
+    "title": "1893 — Joachim von Ribbentrop, German soldier and politician, 14th German Reich Minister for Foreign Affairs (died 1946)",
+    "url": "https://en.wikipedia.org/wiki/Joachim_von_Ribbentrop",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4574937778510124",
+    "type": "fact",
+    "title": "1888 — John Crowe Ransom, American poet, critic, and academic (died 1974)",
+    "url": "https://en.wikipedia.org/wiki/John_Crowe_Ransom",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4613498968294467",
+    "type": "fact",
+    "title": "1884 — Olof Sandborg, Swedish actor (died 1965)",
+    "url": "https://en.wikipedia.org/wiki/Olof_Sandborg",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.29305938258898034",
+    "type": "fact",
+    "title": "1883 — Jaroslav Hašek, Czech soldier and author (died 1923)",
+    "url": "https://en.wikipedia.org/wiki/Jaroslav_Ha%C5%A1ek",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1760065630372547",
+    "type": "fact",
+    "title": "1883 — Luigi Russolo, Italian painter and composer (died 1947)",
+    "url": "https://en.wikipedia.org/wiki/Luigi_Russolo",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.25374819664037274",
+    "type": "fact",
+    "title": "1880 — Charles Exeter Devereux Crombie, Scottish cartoonist (died 1967)",
+    "url": "https://en.wikipedia.org/wiki/Charles_Exeter_Devereux_Crombie",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8762405578347312",
+    "type": "fact",
+    "title": "1879 — Richárd Weisz, Hungarian Olympic champion wrestler (died 1945)",
+    "url": "https://en.wikipedia.org/wiki/Rich%C3%A1rd_Weisz",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2786736376358401",
+    "type": "fact",
+    "title": "1878 — Władysław Witwicki, Polish psychologist, philosopher, translator, historian (of philosophy and art) and artist (died 1948)",
+    "url": "https://en.wikipedia.org/wiki/W%C5%82adys%C5%82aw_Witwicki",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.013756351784991572",
+    "type": "fact",
+    "title": "1877 — Léon Flameng, French cyclist (died 1917)",
+    "url": "https://en.wikipedia.org/wiki/L%C3%A9on_Flameng",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.19222503430344784",
+    "type": "fact",
+    "title": "1877 — Alice B. Toklas, American memoirist (died 1967)",
+    "url": "https://en.wikipedia.org/wiki/Alice_B._Toklas",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.06930376731518129",
+    "type": "fact",
+    "title": "1876 — Orso Mario Corbino, Italian physicist and politician (died 1937)",
+    "url": "https://en.wikipedia.org/wiki/Orso_Mario_Corbino",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9793875041386808",
+    "type": "fact",
+    "title": "1874 — Cyriel Verschaeve, Flemish priest and author (died 1949)",
+    "url": "https://en.wikipedia.org/wiki/Cyriel_Verschaeve",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8221801787127861",
+    "type": "fact",
+    "title": "1870 — Franz Lehár, Hungarian composer (died 1948)",
+    "url": "https://en.wikipedia.org/wiki/Franz_Leh%C3%A1r",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.2572337878396187",
+    "type": "fact",
+    "title": "1870 — Dadasaheb Phalke, Indian director, producer, and screenwriter (died 1944)",
+    "url": "https://en.wikipedia.org/wiki/Dadasaheb_Phalke",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6436758299383672",
+    "type": "fact",
+    "title": "1869 — Hans Poelzig, German architect, designed the IG Farben Building and Großes Schauspielhaus (died 1936)",
+    "url": "https://en.wikipedia.org/wiki/Hans_Poelzig",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6605095025346834",
+    "type": "fact",
+    "title": "1866 — Mary Haviland Stilwell Kuesel, American pioneer dentist (died 1936)",
+    "url": "https://en.wikipedia.org/wiki/Mary_Haviland_Stilwell_Kuesel",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.150177141482021",
+    "type": "fact",
+    "title": "1865 — Max Nettlau, German historian and academic (died 1944)",
+    "url": "https://en.wikipedia.org/wiki/Max_Nettlau",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.4632004724671822",
+    "type": "fact",
+    "title": "1857 — Eugen Bleuler, Swiss psychiatrist and eugenicist (died 1940)",
+    "url": "https://en.wikipedia.org/wiki/Eugen_Bleuler",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.7134426514939631",
+    "type": "fact",
+    "title": "1857 — Walter Simon, German banker and philanthropist (died 1920)",
+    "url": "https://en.wikipedia.org/wiki/Walter_Simon_(philanthropist)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.06586024953177017",
+    "type": "fact",
+    "title": "1848 — Eugène Simon, French naturalist (died 1924)",
+    "url": "https://en.wikipedia.org/wiki/Eug%C3%A8ne_Simon",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3514171836690143",
+    "type": "fact",
+    "title": "1829 — Ferdinand von Hochstetter, Austrian geologist and academic (died 1884)",
+    "url": "https://en.wikipedia.org/wiki/Ferdinand_von_Hochstetter",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6381877335259546",
+    "type": "fact",
+    "title": "1799 — Joseph Dart, American businessman and entrepreneur (died 1879)",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Dart",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6233462674944992",
+    "type": "fact",
+    "title": "1777 — Carl Friedrich Gauss, German mathematician and physicist (died 1855)",
+    "url": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.3501334662171096",
+    "type": "fact",
+    "title": "1770 — David Thompson, English-Canadian cartographer and explorer (died 1857)",
+    "url": "https://en.wikipedia.org/wiki/David_Thompson_(explorer)",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.8933334511241744",
+    "type": "fact",
+    "title": "1758 — Emmanuel Vitale, Maltese commander and politician (died 1802)",
+    "url": "https://en.wikipedia.org/wiki/Emmanuele_Vitale",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.49858865267020547",
+    "type": "fact",
+    "title": "1723 — Mathurin Jacques Brisson, French zoologist and philosopher (died 1806)",
+    "url": "https://en.wikipedia.org/wiki/Mathurin_Jacques_Brisson",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1099249754157039",
+    "type": "fact",
+    "title": "1710 — Johann Kaspar Basselet von La Rosée, Bavarian general (died 1795)",
+    "url": "https://en.wikipedia.org/wiki/Johann_Kaspar_Basselet_von_La_Ros%C3%A9e",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.9960771340289686",
+    "type": "fact",
+    "title": "1664 — François Louis, Prince of Conti (died 1709)",
+    "url": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_Louis%2C_Prince_of_Conti",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.6003648617389783",
+    "type": "fact",
+    "title": "1662 — Mary II of England (died 1694)",
+    "url": "https://en.wikipedia.org/wiki/Mary_II",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.1269870138737641",
+    "type": "fact",
+    "title": "1651 — Jean-Baptiste de La Salle, French priest and saint (died 1719)",
+    "url": "https://en.wikipedia.org/wiki/Jean-Baptiste_de_La_Salle",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.996199282914037",
+    "type": "fact",
+    "title": "1623 — François de Laval, French-Canadian bishop and saint (died 1708)",
+    "url": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_de_Laval",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.08892748191884736",
+    "type": "fact",
+    "title": "1553 — Louise of Lorraine, Queen of France (died 1601)",
+    "url": "https://en.wikipedia.org/wiki/Louise_of_Lorraine",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.0791997897959078",
+    "type": "fact",
+    "title": "1504 — Francesco Primaticcio, Italian painter (died 1570)",
+    "url": "https://en.wikipedia.org/wiki/Francesco_Primaticcio",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.5934805373759248",
+    "type": "fact",
+    "title": "1425 — William III, Landgrave of Thuringia (died 1482)",
+    "url": "https://en.wikipedia.org/wiki/William_III%2C_Landgrave_of_Thuringia",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552856088_0.522218042374416",
+    "type": "fact",
+    "title": "1331 — Gaston III, Count of Foix (died 1391)",
+    "url": "https://en.wikipedia.org/wiki/Gaston_III%2C_Count_of_Foix",
+    "source": "Wikimedia births",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:56.088Z"
+  },
+  {
+    "id": "1777552857174_0.8542159964571352",
+    "type": "fact",
+    "title": "Armed Forces Day (Georgia)",
+    "url": "https://en.wikipedia.org/wiki/Armed_Forces_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.4275666235576674",
+    "type": "fact",
+    "title": "Camarón Day (French Foreign Legion)",
+    "url": "https://en.wikipedia.org/wiki/Battle_of_Camar%C3%B3n",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.005202259192311098",
+    "type": "fact",
+    "title": "Children's Day (Mexico)",
+    "url": "https://en.wikipedia.org/wiki/Children's_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.7871573742649906",
+    "type": "fact",
+    "title": "Christian feast day:\nAdjutor",
+    "url": "https://en.wikipedia.org/wiki/Adjutor",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.1757275928609211",
+    "type": "fact",
+    "title": "Christian feast day:\nAimo",
+    "url": "https://en.wikipedia.org/wiki/Aimo",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.7241901588198129",
+    "type": "fact",
+    "title": "Christian feast day:\nAmator, Peter and Louis",
+    "url": "https://en.wikipedia.org/wiki/Martyrs_of_C%C3%B3rdoba",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.9040639935556914",
+    "type": "fact",
+    "title": "Christian feast day:\nDonatus of Evorea",
+    "url": "https://en.wikipedia.org/wiki/Donatus_of_Euroea",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.11507752695193507",
+    "type": "fact",
+    "title": "Christian feast day:\nEutropius of Saintes",
+    "url": "https://en.wikipedia.org/wiki/Eutropius_of_Saintes",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.3159552416310034",
+    "type": "fact",
+    "title": "Christian feast day:\nMarie Guyart (Anglican Church of Canada and Catholic Church)",
+    "url": "https://en.wikipedia.org/wiki/Marie_of_the_Incarnation_(Ursuline)",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.6680760265169905",
+    "type": "fact",
+    "title": "Christian feast day:\nMaximus of Rome",
+    "url": "https://en.wikipedia.org/wiki/Maximus_of_Rome",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.2948205101353105",
+    "type": "fact",
+    "title": "Christian feast day:\nBlessed Miles Gerard",
+    "url": "https://en.wikipedia.org/wiki/Beatification",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.36159702992827625",
+    "type": "fact",
+    "title": "Christian feast day:\nPomponius of Naples",
+    "url": "https://en.wikipedia.org/wiki/Pomponius_of_Naples",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.5229817116831929",
+    "type": "fact",
+    "title": "Christian feast day:\nPope Pius V",
+    "url": "https://en.wikipedia.org/wiki/Pope_Pius_V",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.5670620539916081",
+    "type": "fact",
+    "title": "Christian feast day:\nQuirinus of Neuss",
+    "url": "https://en.wikipedia.org/wiki/Quirinus_of_Neuss",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.5706246527200063",
+    "type": "fact",
+    "title": "Christian feast day:\nSarah Josepha Hale (Episcopal Church)",
+    "url": "https://en.wikipedia.org/wiki/Sarah_Josepha_Hale",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.8116687298589492",
+    "type": "fact",
+    "title": "Christian feast day:\nSuitbert the Younger",
+    "url": "https://en.wikipedia.org/wiki/Suitbert_the_Younger",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.6666347940723486",
+    "type": "fact",
+    "title": "Christian feast day:\nApril 30 (Eastern Orthodox liturgics)",
+    "url": "https://en.wikipedia.org/wiki/April_30_(Eastern_Orthodox_liturgics)",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.5265166627522089",
+    "type": "fact",
+    "title": "Consumer Protection Day (Thailand)",
+    "url": "https://en.wikipedia.org/wiki/Public_holidays_in_Thailand",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.8725717007211377",
+    "type": "fact",
+    "title": "Honesty Day (United States)",
+    "url": "https://en.wikipedia.org/wiki/Honesty_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.7430294638580864",
+    "type": "fact",
+    "title": "International Jazz Day (UNESCO)",
+    "url": "https://en.wikipedia.org/wiki/International_Jazz_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.16010359379886718",
+    "type": "fact",
+    "title": "Martyrs' Day (Pakistan)",
+    "url": "https://en.wikipedia.org/wiki/Martyrs'_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.6705425071473192",
+    "type": "fact",
+    "title": "May Eve, the eve of the first day of summer in the Northern hemisphere (see May 1):\nBeltane begins at sunset in the Northern hemisphere, Samhain begins at sunset in the Southern hemisphere. (Neo-Druidic Wheel of the Year)",
+    "url": "https://en.wikipedia.org/wiki/Beltane",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.885698483284185",
+    "type": "fact",
+    "title": "May Eve, the eve of the first day of summer in the Northern hemisphere (see May 1):\nWalpurgis Night (Central and Northern Europe)",
+    "url": "https://en.wikipedia.org/wiki/Walpurgis_Night",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.9869428527270214",
+    "type": "fact",
+    "title": "National Persian Gulf Day (Iran)",
+    "url": "https://en.wikipedia.org/wiki/Persian_Gulf_naming_dispute",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.020983351064036926",
+    "type": "fact",
+    "title": "Reunification Day (Vietnam)",
+    "url": "https://en.wikipedia.org/wiki/Reunification_Day",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.5398825946078976",
+    "type": "fact",
+    "title": "Rincon Day (Bonaire)",
+    "url": "https://en.wikipedia.org/wiki/Rincon%2C_Bonaire",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.9111572979805482",
+    "type": "fact",
+    "title": "Russian State Fire Service Day (Russia)",
+    "url": "https://en.wikipedia.org/wiki/Public_holidays_in_Russia",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552857174_0.055929473203728985",
+    "type": "fact",
+    "title": "Teachers' Day (Paraguay)",
+    "url": "https://en.wikipedia.org/wiki/List_of_Teachers'_Days",
+    "source": "Wikimedia holidays",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:57.174Z"
+  },
+  {
+    "id": "1777552858770_0.6259726617412515",
+    "type": "fact",
+    "title": "2021 — Forty-five men and boys are killed in the Meron stampede in Israel.",
+    "url": "https://en.wikipedia.org/wiki/2021_Meron_crowd_crush",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.7254320494164929",
+    "type": "fact",
+    "title": "2014 — A bomb blast in Ürümqi, China kills three people and injures 79 others.",
+    "url": "https://en.wikipedia.org/wiki/April_2014_%C3%9Cr%C3%BCmqi_attack",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.6407432468050911",
+    "type": "fact",
+    "title": "2012 — An overloaded ferry capsizes on the Brahmaputra River in India killing at least 108 people. At least 150 more are missing and presumed dead.",
+    "url": "https://en.wikipedia.org/wiki/Assam_ferry_sinking",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.17948466228655846",
+    "type": "fact",
+    "title": "2009 — Chrysler files for Chapter 11 bankruptcy.",
+    "url": "https://en.wikipedia.org/wiki/Chrysler",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.032283724152768256",
+    "type": "fact",
+    "title": "2009 — Seven civilians and the perpetrator are killed and another ten injured at a Queen's Day parade in Apeldoorn, Netherlands in an attempted assassination on Queen Beatrix.",
+    "url": "https://en.wikipedia.org/wiki/2009_attack_on_the_Dutch_royal_family",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.024499313885026353",
+    "type": "fact",
+    "title": "2008 — Two skeletal remains found near Yekaterinburg are confirmed by Russian scientists to be the remains of Alexei and Anastasia, two of the children of the last Tsar of Russia, whose entire family was executed at Yekaterinburg by the Bolsheviks.",
+    "url": "https://en.wikipedia.org/wiki/Yekaterinburg",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.19142608584935916",
+    "type": "fact",
+    "title": "2000 — Canonization of Faustina Kowalska in the presence of 200,000 people and the first Divine Mercy Sunday celebrated worldwide.",
+    "url": "https://en.wikipedia.org/wiki/Canonization",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.21208254487832345",
+    "type": "fact",
+    "title": "1999 — Neo-Nazi David Copeland carries out the last of his three nail bombings in London at the Admiral Duncan gay pub, killing three people and injuring 79 others.",
+    "url": "https://en.wikipedia.org/wiki/1999_London_nail_bombings",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.9670916725173424",
+    "type": "fact",
+    "title": "1994 — Formula One racing driver Roland Ratzenberger is killed in a crash during the qualifying session of the San Marino Grand Prix run at Autodromo Enzo e Dino Ferrari outside Imola, Italy.",
+    "url": "https://en.wikipedia.org/wiki/Formula_One",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.9675201431225414",
+    "type": "fact",
+    "title": "1993 — CERN announces World Wide Web protocols will be free.",
+    "url": "https://en.wikipedia.org/wiki/CERN",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.5461040194810403",
+    "type": "fact",
+    "title": "1989 — The Monkseaton shootings occur in Tyne and Wear, England. One killed, 16 injured.",
+    "url": "https://en.wikipedia.org/wiki/Monkseaton_shootings",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.8877033736255721",
+    "type": "fact",
+    "title": "1982 — The Bijon Setu massacre occurs in Calcutta, India.",
+    "url": "https://en.wikipedia.org/wiki/Bijon_Setu_massacre",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.7071823913214382",
+    "type": "fact",
+    "title": "1980 — Beatrix is inaugurated as Queen of the Netherlands following the abdication of Juliana.",
+    "url": "https://en.wikipedia.org/wiki/Beatrix_of_the_Netherlands",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.36438732554047804",
+    "type": "fact",
+    "title": "1980 — The Iranian Embassy siege begins in London.",
+    "url": "https://en.wikipedia.org/wiki/Iranian_Embassy_siege",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.6892552604189013",
+    "type": "fact",
+    "title": "1979 — Eruption of Mount Marapi: Mount Marapi, a complex volcano on the Indonesian island of Sumatra, erupts. Between 80 and 100 people are killed.",
+    "url": "https://en.wikipedia.org/wiki/1979_eruption_of_Mount_Marapi",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.24175033598270124",
+    "type": "fact",
+    "title": "1961 — K-19, the first Soviet nuclear submarine equipped with nuclear missiles, is commissioned.",
+    "url": "https://en.wikipedia.org/wiki/Soviet_submarine_K-19",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.5019479909504478",
+    "type": "fact",
+    "title": "1957 — Supplementary Convention on the Abolition of Slavery enters into force.",
+    "url": "https://en.wikipedia.org/wiki/Supplementary_Convention_on_the_Abolition_of_Slavery",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.6335033285148661",
+    "type": "fact",
+    "title": "1948 — In Bogotá, Colombia, the Organization of American States is established.",
+    "url": "https://en.wikipedia.org/wiki/Bogot%C3%A1",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.37121090736837736",
+    "type": "fact",
+    "title": "1947 — In Nevada, Boulder Dam is renamed Hoover Dam.",
+    "url": "https://en.wikipedia.org/wiki/Nevada",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.5839767177010159",
+    "type": "fact",
+    "title": "1939 — The 1939–40 New York World's Fair opens.",
+    "url": "https://en.wikipedia.org/wiki/1939_New_York_World's_Fair",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.34713287140498905",
+    "type": "fact",
+    "title": "1937 — The Commonwealth of the Philippines holds a plebiscite for Filipino women on whether they should be extended the right to suffrage; over 90% would vote in the affirmative.",
+    "url": "https://en.wikipedia.org/wiki/Commonwealth_of_the_Philippines",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.04203296207414875",
+    "type": "fact",
+    "title": "1927 — The Federal Industrial Institute for Women opens in Alderson, West Virginia, as the first women's federal prison in the United States.",
+    "url": "https://en.wikipedia.org/wiki/Federal_Prison_Camp%2C_Alderson",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.4002510553289962",
+    "type": "fact",
+    "title": "1925 — Automaker Dodge Brothers, Inc, is sold to Dillon, Read & Co. for US$146 million plus $50 million for charity.",
+    "url": "https://en.wikipedia.org/wiki/Dodge",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.005715063661759889",
+    "type": "fact",
+    "title": "1905 — Albert Einstein completes his doctoral thesis at the University of Zurich.",
+    "url": "https://en.wikipedia.org/wiki/Albert_Einstein",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.42145681981670546",
+    "type": "fact",
+    "title": "1900 — Hawaii becomes a territory of the United States, with Sanford B. Dole as governor.",
+    "url": "https://en.wikipedia.org/wiki/Hawaii",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.9403591873875047",
+    "type": "fact",
+    "title": "1897 — J. J. Thomson of the Cavendish Laboratory announces his discovery of the electron as a subatomic particle, over 1,800 times smaller than a proton (in the atomic nucleus), at a lecture at the Royal Institution in London.",
+    "url": "https://en.wikipedia.org/wiki/J._J._Thomson",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.8645178405836176",
+    "type": "fact",
+    "title": "1885 — Governor of New York David B. Hill signs legislation creating the Niagara Reservation, New York's first state park, ensuring that Niagara Falls will not be devoted solely to industrial and commercial use.",
+    "url": "https://en.wikipedia.org/wiki/Governor_of_New_York",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.2162433986991864",
+    "type": "fact",
+    "title": "1871 — The Camp Grant massacre takes place in Arizona Territory.",
+    "url": "https://en.wikipedia.org/wiki/Camp_Grant_massacre",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.479257268627577",
+    "type": "fact",
+    "title": "1863 — A 65-man French Foreign Legion infantry patrol fights a force of nearly 2,000 Mexican soldiers to nearly the last man in Hacienda Camarón, Mexico.",
+    "url": "https://en.wikipedia.org/wiki/French_Foreign_Legion",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.10764890502727442",
+    "type": "fact",
+    "title": "1859 — Charles Dickens publishes the first edition of his literary magazine, All the Year Round, containing the first installment of his best-selling classic, A Tale of Two Cities.",
+    "url": "https://en.wikipedia.org/wiki/Charles_Dickens",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.09681099372176183",
+    "type": "fact",
+    "title": "1838 — Nicaragua declares independence from the Central American Federation.",
+    "url": "https://en.wikipedia.org/wiki/Nicaragua",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.5373228242597653",
+    "type": "fact",
+    "title": "1812 — The Territory of Orleans becomes the 18th U.S. state under the name Louisiana.",
+    "url": "https://en.wikipedia.org/wiki/Territory_of_Orleans",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.4283504471776539",
+    "type": "fact",
+    "title": "1803 — Louisiana Purchase: The United States purchases the Louisiana Territory from France for $15 million, more than doubling the size of the young nation.",
+    "url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.8006487014118763",
+    "type": "fact",
+    "title": "1598 — Juan de Oñate begins the conquest of Santa Fe de Nuevo México.",
+    "url": "https://en.wikipedia.org/wiki/Juan_de_O%C3%B1ate",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.4468062676205432",
+    "type": "fact",
+    "title": "1598 — Henry IV of France issues the Edict of Nantes, allowing freedom of religion to the Huguenots.",
+    "url": "https://en.wikipedia.org/wiki/Henry_IV_of_France",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.20657235871299806",
+    "type": "fact",
+    "title": "1513 — Edmund de la Pole, Yorkist pretender to the English throne, is executed on the orders of Henry VIII.",
+    "url": "https://en.wikipedia.org/wiki/Edmund_de_la_Pole%2C_3rd_Duke_of_Suffolk",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.2263781425786099",
+    "type": "fact",
+    "title": "1492 — Spain gives Christopher Columbus his commission of exploration. He is named admiral of the ocean sea, viceroy and governor of any territory he discovers.",
+    "url": "https://en.wikipedia.org/wiki/Christopher_Columbus",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.8241902440424895",
+    "type": "fact",
+    "title": "1315 — Enguerrand de Marigny is hanged at the instigation of Charles, Count of Valois.",
+    "url": "https://en.wikipedia.org/wiki/Enguerrand_de_Marigny",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  },
+  {
+    "id": "1777552858770_0.4763931720396629",
+    "type": "fact",
+    "title": "1305 — Roger de Flor, leader of the mercenary Catalan Company, is murdered, leading to widespread pillaging of the mercenaries in Thrace.",
+    "url": "https://en.wikipedia.org/wiki/Roger_de_Flor",
+    "source": "Wikimedia events",
+    "language": "en",
+    "created_at": "2026-04-30T12:40:58.770Z"
+  }
+]

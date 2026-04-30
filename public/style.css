@@ -150,3 +150,10 @@ pre {
 .tab-content.active {
   display: block;
 }
+
+#promptBox,
+#resultBox pre {
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 14px;
+}

@@ -32,14 +32,20 @@ const dictionarySelectMap = {
   archetype: document.getElementById("archetype")
 };
 
-const STORAGE_KEY = "cto-review-form-state-v1";
-
-const PERSISTED_FIELD_IDS = [
+const FORM_SETTINGS_FIELD_IDS = [
   "mentalModel",
   "prompt1",
   "prompt2",
   "prompt3",
   "language",
+  "useMentalModel",
+  "usePrompt1",
+  "usePrompt2",
+  "usePrompt3",
+  "useLanguage"
+];
+
+const LOCAL_FIELD_IDS = [
   "sendToAi",
   "factText",
   "goal",
@@ -50,11 +56,6 @@ const PERSISTED_FIELD_IDS = [
   "conversationInvite",
   "languageLevel",
   "archetype",
-  "useMentalModel",
-  "usePrompt1",
-  "usePrompt2",
-  "usePrompt3",
-  "useLanguage",
   "useFactText",
   "useGoal",
   "useMeetingSize",
@@ -65,6 +66,8 @@ const PERSISTED_FIELD_IDS = [
   "useLanguageLevel",
   "useArchetype"
 ];
+
+const STORAGE_KEY = "cto-review-form-state-v1";
 
 generateBtn?.addEventListener("click", onGenerate);
 reloadHistoryBtn?.addEventListener("click", loadHistory);
@@ -82,14 +85,99 @@ initializeApp();
 
 async function initializeApp() {
   await loadDictionaries();
-  bindPersistentFields();
-  restoreFormState();
+  await loadFormSettings();
+
+  bindFormSettingsFields();
+  bindLocalPersistentFields();
+  restoreLocalFormState();
+
   setupTabs();
 
   loadHistory();
   loadNewsList();
   loadFactsList();
   loadAphorismsList();
+}
+
+/* ================= FORM SETTINGS FROM SERVER ================= */
+
+async function loadFormSettings() {
+  try {
+    const response = await fetch("/api/form-settings");
+    const data = await response.json();
+
+    if (!data.ok) {
+      console.error("Failed to load form settings");
+      return;
+    }
+
+    applyFormSettings(data.settings || {});
+  } catch (error) {
+    console.error("loadFormSettings error:", error);
+  }
+}
+
+function applyFormSettings(settings) {
+  FORM_SETTINGS_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!(id in settings)) return;
+
+    if (el.type === "checkbox") {
+      el.checked = Boolean(settings[id]);
+    } else {
+      el.value = settings[id];
+    }
+  });
+}
+
+function collectFormSettings() {
+  const settings = {};
+
+  FORM_SETTINGS_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    if (el.type === "checkbox") {
+      settings[id] = el.checked;
+    } else {
+      settings[id] = el.value;
+    }
+  });
+
+  return settings;
+}
+
+let formSettingsSaveTimer = null;
+
+function scheduleSaveFormSettings() {
+  clearTimeout(formSettingsSaveTimer);
+
+  formSettingsSaveTimer = setTimeout(async () => {
+    try {
+      await fetch("/api/form-settings", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(collectFormSettings())
+      });
+    } catch (error) {
+      console.error("saveFormSettings error:", error);
+    }
+  }, 400);
+}
+
+function bindFormSettingsFields() {
+  FORM_SETTINGS_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const eventName =
+      el.tagName === "SELECT" || el.type === "checkbox" ? "change" : "input";
+
+    el.addEventListener(eventName, scheduleSaveFormSettings);
+  });
 }
 
 /* ================= DICTIONARIES ================= */
@@ -599,7 +687,7 @@ function useContentForGeneration(text, source, type) {
     useFactTextEl.checked = true;
   }
 
-  saveFormState();
+  saveLocalFormState();
 
   const message = "Материал подставлен в поле Факт.";
 
@@ -616,59 +704,7 @@ function useContentForGeneration(text, source, type) {
   }
 }
 
-/* ================= SHARED TABLE ================= */
-
-function renderSimpleTable(targetBox, items, columns, includeLink = false) {
-  if (!items.length) {
-    targetBox.innerHTML = "<p>Пока пусто.</p>";
-    return;
-  }
-
-  const headers = columns
-    .map((col) => `<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">${escapeHtml(col.label)}</th>`)
-    .join("");
-
-  const rows = items
-    .map((item, index) => {
-      const cells = columns
-        .map((col) => `<td style="padding:8px; border-bottom:1px solid #eee;">${escapeHtml(item[col.key] || "")}</td>`)
-        .join("");
-
-      const linkCell = includeLink
-        ? `<td style="padding:8px; border-bottom:1px solid #eee;">${
-            item.url
-              ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Open</a>`
-              : "-"
-          }</td>`
-        : "";
-
-      return `
-        <tr>
-          <td style="padding:8px; border-bottom:1px solid #eee;">${index + 1}</td>
-          ${cells}
-          ${linkCell}
-        </tr>
-      `;
-    })
-    .join("");
-
-  targetBox.innerHTML = `
-    <div style="overflow:auto;">
-      <table style="width:100%; border-collapse:collapse;">
-        <thead>
-          <tr>
-            <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">#</th>
-            ${headers}
-            ${includeLink ? `<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Link</th>` : ""}
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-  `;
-}
-
-/* ================= FORM STATE ================= */
+/* ================= LOCAL FORM STATE ================= */
 
 function getFieldValue(id) {
   const el = document.getElementById(id);
@@ -681,10 +717,10 @@ function getCheckboxValue(id) {
   return Boolean(el?.checked);
 }
 
-function collectFormState() {
+function collectLocalFormState() {
   const state = {};
 
-  PERSISTED_FIELD_IDS.forEach((id) => {
+  LOCAL_FIELD_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
@@ -698,16 +734,16 @@ function collectFormState() {
   return state;
 }
 
-function saveFormState() {
+function saveLocalFormState() {
   try {
-    const state = collectFormState();
+    const state = collectLocalFormState();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch (error) {
-    console.error("saveFormState error:", error);
+    console.error("saveLocalFormState error:", error);
   }
 }
 
-function restoreFormState() {
+function restoreLocalFormState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
@@ -715,7 +751,7 @@ function restoreFormState() {
     const state = JSON.parse(raw);
     if (!state || typeof state !== "object") return;
 
-    PERSISTED_FIELD_IDS.forEach((id) => {
+    LOCAL_FIELD_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       if (!(id in state)) return;
@@ -727,19 +763,19 @@ function restoreFormState() {
       }
     });
   } catch (error) {
-    console.error("restoreFormState error:", error);
+    console.error("restoreLocalFormState error:", error);
   }
 }
 
-function bindPersistentFields() {
-  PERSISTED_FIELD_IDS.forEach((id) => {
+function bindLocalPersistentFields() {
+  LOCAL_FIELD_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
     const eventName =
       el.tagName === "SELECT" || el.type === "checkbox" ? "change" : "input";
 
-    el.addEventListener(eventName, saveFormState);
+    el.addEventListener(eventName, saveLocalFormState);
   });
 }
 

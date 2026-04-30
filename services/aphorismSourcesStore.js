@@ -1,8 +1,11 @@
 import fs from "fs/promises";
 import path from "path";
+import { supabase, isSupabaseEnabled } from "./supabaseClient.js";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const FILE_PATH = path.join(DATA_DIR, "aphorismSources.json");
+
+const STORAGE_KEY = "aphorism_sources";
 
 const DEFAULT_SOURCES = [
   {
@@ -48,6 +51,8 @@ async function ensureFile() {
   }
 }
 
+/* ================= SANITIZE ================= */
+
 function sanitizeSource(item = {}, index = 0) {
   const id = String(item.id || `source-${index + 1}`).trim();
   const label = String(item.label || "").trim();
@@ -72,7 +77,7 @@ function sanitizeSources(items = []) {
 
   const prepared = items
     .map((item, index) => sanitizeSource(item, index))
-    .filter((item) => item.id && item.label && item.url);
+    .filter((item) => item.id && item.url);
 
   const map = new Map();
 
@@ -85,7 +90,49 @@ function sanitizeSources(items = []) {
   return Array.from(map.values());
 }
 
+/* ================= SUPABASE ================= */
+
+async function readFromSupabase() {
+  const { data, error } = await supabase
+    .from("app_settings")
+    .select("value")
+    .eq("key", STORAGE_KEY)
+    .single();
+
+  if (error) return null;
+  return data?.value || null;
+}
+
+async function saveToSupabase(value) {
+  const { error } = await supabase
+    .from("app_settings")
+    .upsert(
+      {
+        key: STORAGE_KEY,
+        value
+      },
+      { onConflict: "key" }
+    );
+
+  if (error) {
+    console.error("Supabase save error:", error.message);
+  }
+}
+
+/* ================= API ================= */
+
 export async function readAphorismSources() {
+  if (isSupabaseEnabled) {
+    const data = await readFromSupabase();
+
+    if (data) {
+      return sanitizeSources(data);
+    }
+
+    await saveToSupabase(DEFAULT_SOURCES);
+    return [...DEFAULT_SOURCES];
+  }
+
   await ensureFile();
   const raw = await fs.readFile(FILE_PATH, "utf-8");
 
@@ -98,8 +145,14 @@ export async function readAphorismSources() {
 }
 
 export async function saveAphorismSources(items) {
-  await ensureFile();
   const prepared = sanitizeSources(items);
+
+  if (isSupabaseEnabled) {
+    await saveToSupabase(prepared);
+    return prepared;
+  }
+
+  await ensureFile();
 
   await fs.writeFile(
     FILE_PATH,
@@ -111,6 +164,11 @@ export async function saveAphorismSources(items) {
 }
 
 export async function resetAphorismSources() {
+  if (isSupabaseEnabled) {
+    await saveToSupabase(DEFAULT_SOURCES);
+    return [...DEFAULT_SOURCES];
+  }
+
   await ensureFile();
 
   await fs.writeFile(
