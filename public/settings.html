@@ -84,6 +84,19 @@
     </section>
 
     <section class="card">
+      <h2>Стили вариантов</h2>
+      <p class="subtitle">Применяется когда выбрано «Количество вариантов: 2». Опишите стиль каждого варианта для prompt.</p>
+      <label>
+        Вариант 1
+        <input type="text" id="dictVariantStyle1" placeholder="деловой (используй формальные и профессиональные фразы)" />
+      </label>
+      <label style="margin-top:12px; display:block;">
+        Вариант 2
+        <input type="text" id="dictVariantStyle2" placeholder="дружелюбный (используй метафоры и неформальную лексику)" />
+      </label>
+    </section>
+
+    <section class="card">
       <h2>Источники афоризмов</h2>
       <p class="subtitle">Настройка списка источников для загрузки афоризмов</p>
 
@@ -99,6 +112,23 @@
 
       <div id="aphorismSourcesBox"></div>
     </section>
+<section class="card">
+  <h2>Источники фактов</h2>
+  <p class="subtitle">Настройка списка источников для загрузки фактов</p>
+
+  <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+    <button id="addFactSourceBtn" type="button">Добавить источник</button>
+    <button id="saveFactSourcesBtn" type="button">Сохранить источники</button>
+    <button id="resetFactSourcesBtn" type="button">Сбросить источники</button>
+  </div>
+
+  <div id="factSourcesStatus" style="margin-bottom:12px; font-size:12px; color:#888;">
+    Пока пусто.
+  </div>
+
+  <div id="factSourcesBox"></div>
+</section>
+
   </main>
 
   <script src="/settings.js"></script>

@@ -3,10 +3,16 @@ const reloadHistoryBtn = document.getElementById("reloadHistoryBtn");
 
 const loadNewsBtn = document.getElementById("loadNewsBtn");
 const clearNewsBtn = document.getElementById("clearNewsBtn");
+
 const loadFactsBtn = document.getElementById("loadFactsBtn");
 const clearFactsBtn = document.getElementById("clearFactsBtn");
+
 const loadAphorismsBtn = document.getElementById("loadAphorismsBtn");
 const clearAphorismsBtn = document.getElementById("clearAphorismsBtn");
+
+// ВОТ СЮДА ДОБАВИТЬ
+const loadFactroomFactsBtn = document.getElementById("loadFactroomFactsBtn");
+const clearFactroomFactsBtn = document.getElementById("clearFactroomFactsBtn");
 
 const promptBox = document.getElementById("promptBox");
 const resultBox = document.getElementById("resultBox");
@@ -20,6 +26,11 @@ const factsStatus = document.getElementById("factsStatus");
 
 const aphorismsBox = document.getElementById("aphorismsBox");
 const aphorismsStatus = document.getElementById("aphorismsStatus");
+
+const factroomFactsBox = document.getElementById("factroomFactsBox");
+const factroomFactsStatus = document.getElementById("factroomFactsStatus");
+
+
 
 const dictionarySelectMap = {
   language: document.getElementById("language"),
@@ -56,6 +67,8 @@ const LOCAL_FIELD_IDS = [
   "conversationInvite",
   "languageLevel",
   "archetype",
+  "role",
+  "sharedReality",
   "useFactText",
   "useGoal",
   "useMeetingSize",
@@ -64,7 +77,9 @@ const LOCAL_FIELD_IDS = [
   "useSmallTalkSize",
   "useConversationInvite",
   "useLanguageLevel",
-  "useArchetype"
+  "useArchetype",
+  "useRole",
+  "useSharedReality"
 ];
 
 const STORAGE_KEY = "cto-review-form-state-v1";
@@ -80,6 +95,9 @@ clearFactsBtn?.addEventListener("click", onClearFacts);
 
 loadAphorismsBtn?.addEventListener("click", onLoadAphorisms);
 clearAphorismsBtn?.addEventListener("click", onClearAphorisms);
+
+loadFactroomFactsBtn?.addEventListener("click", onLoadFactroomFacts);
+clearFactroomFactsBtn?.addEventListener("click", onClearFactroomFacts);
 
 initializeApp();
 
@@ -97,6 +115,9 @@ async function initializeApp() {
   loadNewsList();
   loadFactsList();
   loadAphorismsList();
+  loadFactroomFactsList();
+
+
 }
 
 /* ================= FORM SETTINGS FROM SERVER ================= */
@@ -268,6 +289,8 @@ async function onGenerate() {
     conversationInvite: getFieldValue("conversationInvite"),
     languageLevel: getFieldValue("languageLevel"),
     archetype: getFieldValue("archetype"),
+    role: getFieldValue("role"),
+    sharedReality: getFieldValue("sharedReality"),
 
     useMentalModel: getCheckboxValue("useMentalModel"),
     usePrompt1: getCheckboxValue("usePrompt1"),
@@ -284,6 +307,8 @@ async function onGenerate() {
     useConversationInvite: getCheckboxValue("useConversationInvite"),
     useLanguageLevel: getCheckboxValue("useLanguageLevel"),
     useArchetype: getCheckboxValue("useArchetype"),
+    useRole: getCheckboxValue("useRole"),
+    useSharedReality: getCheckboxValue("useSharedReality"),
 
     send_to_ai: getCheckboxValue("sendToAi")
   };
@@ -557,6 +582,74 @@ async function onLoadAphorisms() {
   }
 }
 
+/* ================= FACTROOM FACTS ================= */
+
+async function onLoadFactroomFacts() {
+  factroomFactsStatus.textContent = "Загрузка Factroom фактов...";
+  loadFactroomFactsBtn.disabled = true;
+  clearFactroomFactsBtn.disabled = true;
+
+  try {
+    const response = await fetch("/load-factroom-facts", { method: "POST" });
+    const data = await response.json();
+
+    if (!data.ok) {
+      factroomFactsStatus.textContent = "Ошибка загрузки Factroom фактов.";
+      return;
+    }
+
+    factroomFactsStatus.textContent = `Загружено новых: ${data.added}. Всего в таблице: ${data.total}.`;
+    await loadFactroomFactsList();
+  } catch (error) {
+    factroomFactsStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    loadFactroomFactsBtn.disabled = false;
+    clearFactroomFactsBtn.disabled = false;
+  }
+}
+
+async function onClearFactroomFacts() {
+  factroomFactsStatus.textContent = "Очистка Factroom фактов...";
+  loadFactroomFactsBtn.disabled = true;
+  clearFactroomFactsBtn.disabled = true;
+
+  try {
+    const response = await fetch("/factroom-facts", { method: "DELETE" });
+    const data = await response.json();
+
+    if (!data.ok) {
+      factroomFactsStatus.textContent = "Ошибка очистки Factroom фактов.";
+      return;
+    }
+
+    factroomFactsStatus.textContent = "Таблица Factroom фактов очищена.";
+    await loadFactroomFactsList();
+  } catch (error) {
+    factroomFactsStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    loadFactroomFactsBtn.disabled = false;
+    clearFactroomFactsBtn.disabled = false;
+  }
+}
+
+async function loadFactroomFactsList() {
+  try {
+    const response = await fetch("/factroom-facts");
+    const data = await response.json();
+
+    if (!data.ok) {
+      factroomFactsBox.innerHTML = "<p>Ошибка загрузки списка Factroom фактов.</p>";
+      return;
+    }
+
+    renderSelectableContentTable(factroomFactsBox, data.items || [], "factroomFacts");
+  } catch (error) {
+    factroomFactsBox.innerHTML = `<p>Ошибка сети: ${escapeHtml(error.message)}</p>`;
+  }
+}
+
+
+
 async function onClearAphorisms() {
   aphorismsStatus.textContent = "Очистка афоризмов...";
   loadAphorismsBtn.disabled = true;
@@ -670,6 +763,7 @@ function renderSelectableContentTable(targetBox, items, type) {
 function getContentPrefix(type) {
   if (type === "news") return "Новость";
   if (type === "facts") return "Факт";
+  if (type === "factroomFacts") return "Факт";
   if (type === "aphorisms") return "Цитата";
   return "Материал";
 }
@@ -720,6 +814,9 @@ function useContentForGeneration(text, source, type) {
   if (type === "facts" && factsStatus) {
     factsStatus.textContent = message;
   }
+  if (type === "factroomFacts" && factroomFactsStatus) {
+  factroomFactsStatus.textContent = message;
+}
 
   if (type === "aphorisms" && aphorismsStatus) {
     aphorismsStatus.textContent = message;

@@ -1,3 +1,9 @@
+const addFactSourceBtn = document.getElementById("addFactSourceBtn");
+const saveFactSourcesBtn = document.getElementById("saveFactSourcesBtn");
+const resetFactSourcesBtn = document.getElementById("resetFactSourcesBtn");
+const factSourcesStatus = document.getElementById("factSourcesStatus");
+const factSourcesBox = document.getElementById("factSourcesBox");
+
 const saveBtn = document.getElementById("saveDictionariesBtn");
 const resetBtn = document.getElementById("resetDictionariesBtn");
 const statusBox = document.getElementById("settingsStatus");
@@ -26,11 +32,16 @@ addAphorismSourceBtn?.addEventListener("click", onAddAphorismSource);
 saveAphorismSourcesBtn?.addEventListener("click", onSaveAphorismSources);
 resetAphorismSourcesBtn?.addEventListener("click", onResetAphorismSources);
 
+addFactSourceBtn?.addEventListener("click", onAddFactSource);
+saveFactSourcesBtn?.addEventListener("click", onSaveFactSources);
+resetFactSourcesBtn?.addEventListener("click", onResetFactSources);
+
 initializeSettingsPage();
 
 async function initializeSettingsPage() {
   await loadDictionaries();
   await loadAphorismSources();
+  await loadFactSources();
 }
 
 /* ================= DICTIONARIES ================= */
@@ -158,6 +169,12 @@ function formatRuleLines(items) {
 }
 
 function collectFormData() {
+  const vs1El = document.getElementById("dictVariantStyle1");
+  const vs2El = document.getElementById("dictVariantStyle2");
+
+  console.log("dictVariantStyle1 el:", vs1El, "value:", vs1El?.value);
+  console.log("dictVariantStyle2 el:", vs2El, "value:", vs2El?.value);
+
   return {
     meetingSize: collectRuleLines(fieldMap.meetingSize.value),
     meetingType: collectRuleLines(fieldMap.meetingType.value),
@@ -166,7 +183,9 @@ function collectFormData() {
     languageLevel: collectRuleLines(fieldMap.languageLevel.value),
     smallTalkSize: collectRuleLines(fieldMap.smallTalkSize.value),
     archetype: collectRuleLines(fieldMap.archetype.value),
-    language: collectLines(fieldMap.language.value)
+    language: collectLines(fieldMap.language.value),
+    variantStyle1: String(vs1El?.value || "").trim(),
+    variantStyle2: String(vs2El?.value || "").trim()
   };
 }
 
@@ -179,6 +198,15 @@ function fillForm(dictionaries) {
   fieldMap.smallTalkSize.value = formatRuleLines(dictionaries.smallTalkSize || []);
   fieldMap.archetype.value = formatRuleLines(dictionaries.archetype || []);
   fieldMap.language.value = (dictionaries.language || []).join("\n");
+
+  const vs1 = document.getElementById("dictVariantStyle1");
+  const vs2 = document.getElementById("dictVariantStyle2");
+
+  console.log("fillForm variantStyle1:", dictionaries.variantStyle1, "el:", vs1);
+  console.log("fillForm variantStyle2:", dictionaries.variantStyle2, "el:", vs2);
+
+  if (vs1) vs1.value = dictionaries.variantStyle1 || "";
+  if (vs2) vs2.value = dictionaries.variantStyle2 || "";
 }
 
 /* ================= APHORISM SOURCES ================= */
@@ -201,6 +229,190 @@ async function loadAphorismSources() {
     aphorismSourcesStatus.textContent = "Источники афоризмов загружены.";
   } catch (error) {
     aphorismSourcesStatus.textContent = `Ошибка сети: ${error.message}`;
+  }
+}
+
+/* ================= FACT SOURCES ================= */
+
+async function loadFactSources() {
+  if (!factSourcesBox || !factSourcesStatus) return;
+
+  factSourcesStatus.textContent = "Загрузка источников фактов...";
+
+  try {
+    const response = await fetch("/api/fact-sources");
+    const data = await response.json();
+
+    if (!data.ok) {
+      factSourcesStatus.textContent = "Ошибка загрузки источников фактов.";
+      return;
+    }
+
+    renderFactSources(data.items || []);
+    factSourcesStatus.textContent = "Источники фактов загружены.";
+  } catch (error) {
+    factSourcesStatus.textContent = `Ошибка сети: ${error.message}`;
+  }
+}
+
+function createFactSourceRow(item = {}) {
+  const row = document.createElement("div");
+  row.className = "fact-source-row";
+  row.style.border = "1px solid #dbe1e8";
+  row.style.borderRadius = "10px";
+  row.style.padding = "12px";
+  row.style.marginTop = "12px";
+  row.style.background = "#fcfdff";
+
+  row.innerHTML = `
+    <div style="display:grid; gap:10px;">
+      <label>
+        <span>URL</span>
+        <input type="text" class="fact-src-url" value="${escapeHtml(item.url || "")}" placeholder="https://..." />
+      </label>
+
+      <label class="checkbox-row">
+        <input type="checkbox" class="fact-src-enabled" ${item.enabled !== false ? "checked" : ""} />
+        Использовать
+      </label>
+
+      <div>
+        <button type="button" class="fact-src-remove-btn">Удалить</button>
+      </div>
+    </div>
+  `;
+
+  row.querySelector(".fact-src-remove-btn")?.addEventListener("click", () => {
+    row.remove();
+
+    if (!factSourcesBox.children.length) {
+      factSourcesStatus.textContent = "Список пуст.";
+    }
+  });
+
+  return row;
+}
+
+function renderFactSources(items) {
+  factSourcesBox.innerHTML = "";
+
+  if (!items.length) {
+    factSourcesStatus.textContent = "Список пуст.";
+    return;
+  }
+
+  items.forEach((item) => {
+    factSourcesBox.appendChild(createFactSourceRow(item));
+  });
+}
+
+function onAddFactSource() {
+  factSourcesBox.appendChild(
+    createFactSourceRow({
+      url: "",
+      enabled: true
+    })
+  );
+
+  factSourcesStatus.textContent = "Добавлен новый источник.";
+}
+
+function makeFactSourceMeta(url, index, enabled) {
+  const cleanedUrl = String(url || "").trim();
+
+  let slug = `fact-source-${index + 1}`;
+
+  try {
+    const parsedUrl = new URL(cleanedUrl);
+    const parts = parsedUrl.pathname.split("/").filter(Boolean);
+    slug = parts[parts.length - 1] || slug;
+  } catch {}
+
+  return {
+    id: slug,
+    label: slug,
+    type: "factroom",
+    url: cleanedUrl,
+    enabled,
+    language: "ru",
+    limit: 20
+  };
+}
+
+function collectFactSourcesForm() {
+  const rows = Array.from(document.querySelectorAll(".fact-source-row"));
+
+  return rows
+    .map((row, index) => {
+      const url = String(row.querySelector(".fact-src-url")?.value || "").trim();
+      const enabled = Boolean(row.querySelector(".fact-src-enabled")?.checked);
+
+      return makeFactSourceMeta(url, index, enabled);
+    })
+    .filter((item) => item.url);
+}
+
+async function onSaveFactSources() {
+  factSourcesStatus.textContent = "Сохранение источников фактов...";
+  saveFactSourcesBtn.disabled = true;
+  resetFactSourcesBtn.disabled = true;
+  addFactSourceBtn.disabled = true;
+
+  try {
+    const payload = collectFactSourcesForm();
+
+    const response = await fetch("/api/fact-sources", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+
+    if (!data.ok) {
+      factSourcesStatus.textContent = "Ошибка сохранения источников фактов.";
+      return;
+    }
+
+    renderFactSources(data.items || []);
+    factSourcesStatus.textContent = "Источники фактов сохранены.";
+  } catch (error) {
+    factSourcesStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    saveFactSourcesBtn.disabled = false;
+    resetFactSourcesBtn.disabled = false;
+    addFactSourceBtn.disabled = false;
+  }
+}
+
+async function onResetFactSources() {
+  factSourcesStatus.textContent = "Сброс источников фактов...";
+  saveFactSourcesBtn.disabled = true;
+  resetFactSourcesBtn.disabled = true;
+  addFactSourceBtn.disabled = true;
+
+  try {
+    const response = await fetch("/api/fact-sources/reset", {
+      method: "POST"
+    });
+
+    const data = await response.json();
+
+    if (!data.ok) {
+      factSourcesStatus.textContent = "Ошибка сброса источников фактов.";
+      return;
+    }
+
+    renderFactSources(data.items || []);
+    factSourcesStatus.textContent = "Источники фактов сброшены.";
+  } catch (error) {
+    factSourcesStatus.textContent = `Ошибка сети: ${error.message}`;
+  } finally {
+    saveFactSourcesBtn.disabled = false;
+    resetFactSourcesBtn.disabled = false;
+    addFactSourceBtn.disabled = false;
   }
 }
 

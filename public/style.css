@@ -157,3 +157,14 @@ pre {
   line-height: 1.6;
   padding: 14px;
 }
+
+#generateBtn {
+  background: #2563eb;
+  min-width: 280px;
+  padding: 12px 32px;
+  font-size: 16px;
+}
+
+#generateBtn:hover {
+  background: #1d4ed8;
+}

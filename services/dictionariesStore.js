@@ -37,7 +37,9 @@ const DEFAULT_DICTIONARIES = {
     { value: "Правитель", promptHint: "Делай стиль уверенным, структурным, собранным, ориентированным на контроль и решение." },
     { value: "Шут", promptHint: "Добавляй легкость, живость, мягкую иронию, но без клоунады." }
   ],
-  language: ["русский", "английский"]
+  language: ["русский", "английский"],
+  variantStyle1: "деловой (используй формальные и профессиональные фразы)",
+  variantStyle2: "дружелюбный (используй метафоры и неформальную лексику)"
 };
 
 /* ===== sanitize ===== */
@@ -78,7 +80,9 @@ function sanitizeDictionaries(payload = {}) {
     languageLevel: sanitizeRuleArray(payload.languageLevel),
     smallTalkSize: sanitizeRuleArray(payload.smallTalkSize),
     archetype: sanitizeRuleArray(payload.archetype),
-    language: sanitizeStringArray(payload.language)
+    language: sanitizeStringArray(payload.language),
+    variantStyle1: String(payload.variantStyle1 || "").trim(),
+    variantStyle2: String(payload.variantStyle2 || "").trim()
   };
 }
 
@@ -93,13 +97,32 @@ export async function readDictionaries() {
     .eq("key", KEY)
     .single();
 
-  if (!data) return DEFAULT_DICTIONARIES;
+  if (!data || !data.value) {
+    return DEFAULT_DICTIONARIES;
+  }
 
-  return sanitizeDictionaries(data.value);
+  const sanitized = sanitizeDictionaries(data.value);
+
+  // 🔴 КРИТИЧЕСКАЯ ПРОВЕРКА
+  const ARRAY_KEYS = ["meetingSize", "meetingType", "tone", "conversationInvite", "languageLevel", "smallTalkSize", "archetype", "language"];
+  const isEmpty = ARRAY_KEYS.every(k => Array.isArray(sanitized[k]) && sanitized[k].length === 0);
+
+  if (isEmpty) {
+    return DEFAULT_DICTIONARIES;
+  }
+
+  return sanitized;
 }
 
 export async function saveDictionaries(payload) {
   const prepared = sanitizeDictionaries(payload);
+
+  const ARRAY_KEYS = ["meetingSize", "meetingType", "tone", "conversationInvite", "languageLevel", "smallTalkSize", "archetype", "language"];
+  const isEmpty = ARRAY_KEYS.every(k => Array.isArray(prepared[k]) && prepared[k].length === 0);
+
+  if (isEmpty) {
+    throw new Error("Refuse to save empty dictionaries");
+  }
 
   if (!isSupabaseEnabled) return prepared;
 

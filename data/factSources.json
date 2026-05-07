@@ -1,0 +1,20 @@
+[
+  {
+    "id": "internet",
+    "label": "internet",
+    "type": "factroom",
+    "url": "https://www.factroom.ru/internet",
+    "enabled": true,
+    "language": "ru",
+    "limit": 20
+  },
+  {
+    "id": "kosmos",
+    "label": "kosmos",
+    "type": "factroom",
+    "url": "https://www.factroom.ru/kosmos",
+    "enabled": true,
+    "language": "ru",
+    "limit": 20
+  }
+]

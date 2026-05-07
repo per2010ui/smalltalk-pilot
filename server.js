@@ -5,6 +5,13 @@ import express from "express";
 import dotenv from "dotenv";
 import OpenAI from "openai";
 
+import { loadFactroomFacts } from "./services/factroomFactsLoader.js";
+import {
+  readFactroomFacts,
+  mergeFactroomFacts,
+  clearFactroomFacts
+} from "./services/factroomFactsStore.js";
+
 import { loadNews } from "./services/newsLoader.js";
 import { readNews, mergeNews, clearNews } from "./services/newsStore.js";
 import { loadFacts } from "./services/factsLoader.js";
@@ -24,6 +31,12 @@ import {
   readFormSettings,
   saveFormSettings
 } from "./services/formSettingsStore.js";
+
+import {
+  readFactSources,
+  saveFactSources,
+  resetFactSources
+} from "./services/factSourcesStore.js";
 
 dotenv.config();
 
@@ -68,6 +81,7 @@ function buildPrompt(payload) {
   const contextLines = [];
 
   addLine(contextLines, payload.useLanguage, "Language", payload.language);
+  addLine(contextLines, payload.useRole, "Роль", payload.role);
 
   addLine(contextLines, payload.useFactText, "Fact", payload.factText);
   addLine(contextLines, payload.useGoal, "Goal", payload.goal);
@@ -78,7 +92,7 @@ function buildPrompt(payload) {
 }
   //addLine(contextLines, payload.useMeetingType, "Тип встречи", payload.meetingType);
   addLine(contextLines, payload.useTone, "Тон", payload.tone);
-  //addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
+  addLine(contextLines, payload.useSharedReality, "Общая реальность", payload.sharedReality);
   // addLine(contextLines, payload.useConversationInvite, "Приглашение к разговору", payload.conversationInvite);
 
 if (payload.useConversationInvite && payload.conversationInviteHint) {
@@ -106,6 +120,11 @@ if (payload.useConversationInvite && payload.conversationInviteHint) {
 
   if (payload.useMentalModel && payload.mentalModel) {
     contextLines.push(`${payload.mentalModel}`);
+  }
+
+  if (payload.variantsCount === 2 && payload.variantStyle1 && payload.variantStyle2) {
+    contextLines.push(`Вариант 1: ${payload.variantStyle1}`);
+    contextLines.push(`Вариант 2: ${payload.variantStyle2}`);
   }
 
   const introBlock =
@@ -191,7 +210,20 @@ function normalizeVariants(parsed, expectedCount) {
 
   return normalized;
 }
+app.get("/api/fact-sources", async (_req, res) => {
+  const items = await readFactSources();
+  res.json({ ok: true, items });
+});
 
+app.put("/api/fact-sources", async (req, res) => {
+  const items = await saveFactSources(req.body || []);
+  res.json({ ok: true, items });
+});
+
+app.post("/api/fact-sources/reset", async (_req, res) => {
+  const items = await resetFactSources();
+  res.json({ ok: true, items });
+});
 app.get("/api/history", async (_req, res) => {
   try {
     const history = await readHistory();
@@ -247,7 +279,12 @@ app.post("/api/generate", async (req, res) => {
       useTone: Boolean(payload.useTone),
       useConversationInvite: Boolean(payload.useConversationInvite),
       useLanguageLevel: Boolean(payload.useLanguageLevel),
-      useArchetype: Boolean(payload.useArchetype)
+      useArchetype: Boolean(payload.useArchetype),
+
+      role: payload.role || "",
+      sharedReality: payload.sharedReality || "",
+      useRole: Boolean(payload.useRole),
+      useSharedReality: Boolean(payload.useSharedReality)
     };
 
     const sendToAi = Boolean(payload.send_to_ai);
@@ -263,7 +300,9 @@ const prompt = buildPrompt({
   languageLevelHint: findPromptHint(dictionaries.languageLevel, requestData.languageLevel),
   smallTalkSizeHint: findPromptHint(dictionaries.smallTalkSize, requestData.smallTalkSize),
   archetypeHint: findPromptHint(dictionaries.archetype, requestData.archetype),
-   conversationInviteHint: findPromptHint(dictionaries.conversationInvite, requestData.conversationInvite)
+  conversationInviteHint: findPromptHint(dictionaries.conversationInvite, requestData.conversationInvite),
+  variantStyle1: dictionaries.variantStyle1 || "",
+  variantStyle2: dictionaries.variantStyle2 || ""
 });
     const promptTime = Date.now() - tPromptStart;
 
@@ -746,6 +785,73 @@ app.put("/api/form-settings", async (req, res) => {
     res.status(500).json({
       ok: false,
       error: "Failed to save form settings"
+    });
+  }
+});
+
+app.post("/load-factroom-facts", async (_req, res) => {
+  try {
+    const loadedItems = await loadFactroomFacts();
+    const result = await mergeFactroomFacts(loadedItems);
+
+    res.json({
+      ok: true,
+      added: result.added,
+      total: result.total,
+      items: result.items
+    });
+  } catch (error) {
+    console.error("POST /load-factroom-facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to load Factroom facts"
+    });
+  }
+});
+
+app.get("/factroom-facts", async (req, res) => {
+  try {
+    const limit = Number(req.query.limit || 0);
+    const language = String(req.query.language || "").trim().toLowerCase();
+
+    let items = await readFactroomFacts();
+
+    if (language) {
+      items = items.filter(
+        (item) => String(item.language || "").toLowerCase() === language
+      );
+    }
+
+    if (limit > 0) {
+      items = items.slice(0, limit);
+    }
+
+    res.json({
+      ok: true,
+      items
+    });
+  } catch (error) {
+    console.error("GET /factroom-facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to read Factroom facts"
+    });
+  }
+});
+
+app.delete("/factroom-facts", async (_req, res) => {
+  try {
+    await clearFactroomFacts();
+
+    res.json({
+      ok: true,
+      cleared: true
+    });
+  } catch (error) {
+    console.error("DELETE /factroom-facts error:", error);
+    res.status(500).json({
+      ok: false,
+      error: "Failed to clear Factroom facts"
     });
   }
 });
